@@ -289,6 +289,17 @@ body {
 .sidebar-link:hover .sidebar-dot { background: var(--text2); }
 .sidebar-link.active .sidebar-dot { background: var(--accent); }
 
+.sidebar-link-featured {
+  color: var(--accent);
+  font-weight: 600;
+  background: var(--accent-dim);
+  border: 1px solid rgba(14,165,233,0.18);
+  border-radius: var(--r-sm);
+  margin-bottom: 4px;
+}
+.sidebar-link-featured:hover { background: rgba(14,165,233,0.18) !important; color: var(--accent) !important; }
+.sidebar-link-featured .sidebar-dot { background: var(--accent); }
+
 /* ── Main Layout ───────────────────────────────── */
 #main {
   margin-left: var(--sidebar-w);

@@ -845,6 +845,205 @@ a code { color: var(--accent); }
   font-style: normal;
 }
 
+/* ── Layman Section ────────────────────────────── */
+.layman-block {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--r-lg);
+  padding: 28px 32px;
+  margin: 24px 0;
+}
+
+.layman-block-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.layman-block p {
+  font-size: 15.5px;
+  color: var(--text2);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Rules grid */
+.layman-rules {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.layman-rule {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 16px 18px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  transition: border-color 180ms var(--ease), background 180ms var(--ease);
+}
+
+.layman-rule:hover {
+  border-color: var(--border2);
+  background: var(--surface3);
+}
+
+.layman-rule-icon {
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.layman-rule-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.layman-rule-body {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+
+/* Step list */
+.layman-step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.layman-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 14px 18px;
+}
+
+.layman-step-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--accent-dim);
+  border: 1px solid rgba(14,165,233,0.25);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.layman-step-text {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.65;
+}
+
+.layman-step-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Phase blocks (100→10k journey) */
+.layman-phases {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.layman-phase {
+  border-radius: var(--r);
+  border: 1px solid var(--border2);
+  overflow: hidden;
+}
+
+.layman-phase-header {
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.layman-phase-body {
+  padding: 14px 20px 16px;
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.7;
+  border-top: 1px solid var(--border);
+}
+
+.layman-phase-body ul {
+  padding-left: 18px;
+  margin-top: 6px;
+}
+
+.layman-phase-body li {
+  margin-bottom: 4px;
+}
+
+.layman-phase-title {
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.phase-1 .layman-phase-header { background: rgba(239,68,68,0.1); color: #FF8080; }
+.phase-1 { border-color: rgba(239,68,68,0.2); }
+
+.phase-2 .layman-phase-header { background: rgba(245,158,11,0.1); color: var(--yellow); }
+.phase-2 { border-color: rgba(245,158,11,0.2); }
+
+.phase-3 .layman-phase-header { background: rgba(16,185,129,0.1); color: var(--green); }
+.phase-3 { border-color: rgba(16,185,129,0.2); }
+
+/* Final quote block */
+.layman-final {
+  background: linear-gradient(135deg, rgba(14,165,233,0.07), rgba(16,185,129,0.04));
+  border: 1px solid rgba(14,165,233,0.2);
+  border-radius: var(--r-lg);
+  padding: 28px 32px;
+  text-align: center;
+  margin: 32px 0 0;
+}
+
+.layman-final-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.layman-final-quote {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.7;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
 /* ── Responsive ────────────────────────────────── */
 @media (max-width: 960px) {
   :root { --sidebar-w: 0px; }

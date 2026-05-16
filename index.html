@@ -67,9 +67,17 @@
       <span class="sidebar-dot"></span>
       Author Diversity Decay
     </a>
+    <a class="sidebar-link" data-section="vm-ranker">
+      <span class="sidebar-dot"></span>
+      VM Ranker &amp; DPP
+    </a>
     <a class="sidebar-link" data-section="oon">
       <span class="sidebar-dot"></span>
       OON Scoring
+    </a>
+    <a class="sidebar-link" data-section="network-signals">
+      <span class="sidebar-dot"></span>
+      Network Signals
     </a>
     <a class="sidebar-link" data-section="retrieval">
       <span class="sidebar-dot"></span>
@@ -83,9 +91,21 @@
       <span class="sidebar-dot"></span>
       The 80-Hour Cliff
     </a>
+    <a class="sidebar-link" data-section="age-velocity">
+      <span class="sidebar-dot"></span>
+      Age Velocity Windows
+    </a>
     <a class="sidebar-link" data-section="spam-tiers">
       <span class="sidebar-dot"></span>
       Spam Filter Tiers
+    </a>
+    <a class="sidebar-link" data-section="follower-tiers">
+      <span class="sidebar-dot"></span>
+      6 Follower Tiers
+    </a>
+    <a class="sidebar-link" data-section="new-user-mode">
+      <span class="sidebar-dot"></span>
+      New User Mode
     </a>
     <a class="sidebar-link" data-section="seen-filter">
       <span class="sidebar-dot"></span>
@@ -95,6 +115,10 @@
       <span class="sidebar-dot"></span>
       Content Filters
     </a>
+    <a class="sidebar-link" data-section="conversation-dedup">
+      <span class="sidebar-dot"></span>
+      Conversation Dedup
+    </a>
   </div>
 
   <div class="sidebar-group">
@@ -103,9 +127,21 @@
       <span class="sidebar-dot"></span>
       Dwell Time (30s Rule)
     </a>
+    <a class="sidebar-link" data-section="click-dwell">
+      <span class="sidebar-dot"></span>
+      Click-Through Dwell
+    </a>
     <a class="sidebar-link" data-section="video">
       <span class="sidebar-dot"></span>
       Video &amp; VQV Gate
+    </a>
+    <a class="sidebar-link" data-section="video-tiers">
+      <span class="sidebar-dot"></span>
+      Video Duration Tiers
+    </a>
+    <a class="sidebar-link" data-section="engagement-velocity">
+      <span class="sidebar-dot"></span>
+      Engagement Velocity
     </a>
     <a class="sidebar-link" data-section="signals19">
       <span class="sidebar-dot"></span>
@@ -470,6 +506,45 @@
 
 <hr class="section-divider">
 
+<!-- ══ SECTION: VM RANKER & DPP ══════════════════════════════════════════ -->
+<section class="section" id="vm-ranker">
+  <div class="section-header">
+    <div class="section-tag">§ 04b — Secondary Ranker</div>
+    <h1 class="section-title">VM Ranker &amp; DPP Diversity Re-Ranking</h1>
+    <p class="section-subtitle">After Phoenix scores every candidate, a second model runs — the Value Model Ranker — that can completely reorder the feed using a Determinantal Point Process to enforce diversity.</p>
+  </div>
+
+  <p>Most creators don't know this exists. The Phoenix score gets you into the feed. The VM Ranker decides where in the feed you actually land. It applies DPP (Determinantal Point Process) — a mathematical model that intentionally penalises similar content clustering together.</p>
+
+  <pre><code><span class="code-comment"># VM Ranker params (home-mixer/scorers/vm_ranker.rs)</span>
+<span class="code-key">EnableVMRanker</span>             = <span class="code-val">true</span>         <span class="code-comment"># feature-switch gated</span>
+<span class="code-key">VMRankerValueModelId</span>       = <span class="code-string">"&lt;model_id&gt;"</span>  <span class="code-comment"># secondary model</span>
+
+<span class="code-comment"># DPP diversity enforcement</span>
+<span class="code-key">VMRankerDppTheta</span>           = <span class="code-num">float</span>        <span class="code-comment"># how strongly diversity is enforced</span>
+<span class="code-key">VMRankerDppMaxSelectedRank</span> = <span class="code-num">int</span>          <span class="code-comment"># max rank positions affected by DPP</span>
+
+<span class="code-comment"># Inputs to VM Ranker:</span>
+<span class="code-key">phoenix_scores</span>             <span class="code-comment"># from PhoenixScorer</span>
+<span class="code-key">viewer_following_count</span>     <span class="code-comment"># viewer's social graph size</span>
+<span class="code-key">new_user_age_threshold_secs</span> <span class="code-comment"># whether viewer is "new user"</span></code></pre>
+
+  <div class="callout callout-warning">
+    <span class="callout-icon">⚡</span>
+    <div><strong>What DPP means for you:</strong> If you've already appeared multiple times in a viewer's recent feed loads, the DPP diversity model actively penalises showing you again — even if your Phoenix score is high. This is a second layer of author diversity on top of the decay multiplier. You cannot spam your way into high placement even if your base score is excellent.</div>
+  </div>
+
+  <h3>Practical Implications</h3>
+  <ul>
+    <li><strong>One great post beats five average ones</strong> — the DPP model will de-rank your 3rd and 4th posts in a session regardless of their raw Phoenix score</li>
+    <li><strong>Spacing posts by 24h+</strong> allows DPP diversity scores to reset, giving each post a cleaner slate</li>
+    <li><strong>High Phoenix score still matters first</strong> — DPP only re-orders candidates that are already in the selection pool; if your score doesn't get you in the pool, DPP is irrelevant</li>
+    <li>The DPP theta param controls how aggressively diversity is enforced — this is tuned platform-wide, not per-user</li>
+  </ul>
+</section>
+
+<hr class="section-divider">
+
 <!-- ══ SECTION 5: OON SCORING ════════════════════════════════════════════ -->
 <section class="section" id="oon">
   <div class="section-header">
@@ -492,6 +567,49 @@
   </div>
 
   <p>To beat the OON penalty your post needs a much higher base score than in-network posts. This is why viral posts need critical mass early — they need enough engagement signal to overcome the OON penalty and still rank highly for strangers. Seeding early engagement is not optional; it's structurally required to reach non-followers.</p>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══ SECTION: NETWORK SIGNALS ═════════════════════════════════════════ -->
+<section class="section" id="network-signals">
+  <div class="section-header">
+    <div class="section-tag">§ 05b — Network Signals</div>
+    <h1 class="section-title">Network Signals: Jaccard Similarity &amp; Topic OON</h1>
+    <p class="section-subtitle">Two hidden multipliers that most creators never optimise for — your network overlap with viewers, and a separate OON weight when you enter topic feeds.</p>
+  </div>
+
+  <div class="card card-accent">
+    <div class="card-title accent">Mutual Follow Jaccard Similarity</div>
+    <pre><code><span class="code-comment"># mutual_follow_jaccard_hydrator.rs</span>
+<span class="code-key">signal</span>: <span class="code-string">mutual_follow_jaccard</span>
+<span class="code-key">method</span>: Jaccard similarity between viewer follower minhash
+         AND author follower minhash
+<span class="code-key">required</span>: >= <span class="code-num">256</span> minhash signatures to be valid
+<span class="code-comment"># Higher overlap → higher signal → post boosted to that viewer</span></code></pre>
+    <p style="margin-top:10px; color:var(--text2); font-size:14px;">The algorithm measures what fraction of your followers also follow the viewer. If you and a viewer share many mutual followers, your posts are ranked higher for them.</p>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💡</span>
+    <div><strong>How to use this:</strong> Engage heavily with the accounts your target audience follows. When you and a viewer both follow accounts A, B, and C, your Jaccard score with that viewer rises. This means community participation — replying in the same conversations your target audience is in — directly raises your algorithmic visibility to them, even before they follow you.</div>
+  </div>
+
+  <div class="card card-accent">
+    <div class="card-title accent">Topic OON Weight Factor — Separate from Standard OON</div>
+    <pre><code><span class="code-comment"># home-mixer/scorers/oon_scorer.rs</span>
+<span class="code-key">if</span> !in_network AND topic_request_active:
+    score *= <span class="code-key">TopicOonWeightFactor</span>   <span class="code-comment"># different from OON_WEIGHT_FACTOR</span>
+
+<span class="code-key">if</span> !in_network AND !topic_request:
+    score *= <span class="code-key">OonWeightFactor</span>        <span class="code-comment"># standard OON penalty</span></code></pre>
+    <p style="margin-top:10px; color:var(--text2); font-size:14px;">When your post enters a topic/trending feed (via VLM taxonomy match), it uses a <em>different</em> OON weight than general For You distribution. This factor can be more generous — meaning trending topic posts face a lighter OON penalty than generic OON posts.</p>
+  </div>
+
+  <div class="callout callout-success">
+    <span class="callout-icon">✅</span>
+    <div><strong>The implication:</strong> Getting the VLM to assign your post to a trending taxonomy category isn't just about topic feed traffic — it also reduces your OON penalty in the main For You feed for those viewers. Two wins from one mechanic. Write posts that the VLM can confidently tag to a specific trending topic.</div>
+  </div>
 </section>
 
 <hr class="section-divider">
@@ -556,6 +674,48 @@
 
 <hr class="section-divider">
 
+<!-- ══ SECTION: AGE VELOCITY WINDOWS ════════════════════════════════════ -->
+<section class="section" id="age-velocity">
+  <div class="section-header">
+    <div class="section-tag">§ 07b — Post Age Velocity</div>
+    <h1 class="section-title">Age Velocity Windows Within the 80 Hours</h1>
+    <p class="section-subtitle">The 80-hour cliff isn't a flat window. The algorithm tracks distinct age buckets — meaning engagement in the first 30 minutes is measured separately from the 1-hour window, the 6-hour window, and beyond.</p>
+  </div>
+
+  <pre><code><span class="code-comment"># tweet_type_metrics_hydrator.rs — age bucket flags</span>
+<span class="code-key">TWEET_AGE_LTE_30_MINUTES</span>   <span class="code-comment"># 0–30 min: highest velocity window</span>
+<span class="code-key">TWEET_AGE_LTE_1_HOUR</span>       <span class="code-comment"># 0–1 hr</span>
+<span class="code-key">TWEET_AGE_LTE_6_HOURS</span>      <span class="code-comment"># 0–6 hrs: primary OON distribution window</span>
+<span class="code-key">TWEET_AGE_LTE_12_HOURS</span>     <span class="code-comment"># 0–12 hrs</span>
+<span class="code-key">TWEET_AGE_GTE_24_HOURS</span>     <span class="code-comment"># 24h+: long tail window</span></code></pre>
+
+  <div class="signal-grid">
+    <div class="signal-card">
+      <div class="signal-name">0 – 30 MINUTES</div>
+      <div class="signal-desc">Critical velocity window. Posts that accumulate engagement fastest here get priority OON routing. Every minute matters.</div>
+    </div>
+    <div class="signal-card">
+      <div class="signal-name">1 – 6 HOURS</div>
+      <div class="signal-desc">Primary OON distribution window. If min traction is crossed and VLM scores ≥0.4, this is when viral amplification fires.</div>
+    </div>
+    <div class="signal-card">
+      <div class="signal-name">6 – 24 HOURS</div>
+      <div class="signal-desc">Sustained distribution. Posts still in flight here are actively accruing OON impressions. Reply velocity still counts.</div>
+    </div>
+    <div class="signal-card">
+      <div class="signal-name">24 – 80 HOURS</div>
+      <div class="signal-desc">Long tail. Engagement still registered but distribution slows. After 80h: hard exit from the retrieval window.</div>
+    </div>
+  </div>
+
+  <div class="callout callout-danger">
+    <span class="callout-icon">⚠️</span>
+    <div><strong>The real insight:</strong> The algorithm doesn't just know your post is "young" — it knows exactly which velocity bucket you're in. A post that gets 50 replies in 30 minutes is classified differently from one that gets 50 replies in 6 hours. Velocity of engagement is a first-class signal, not just volume. Front-load as much real engagement as possible into the first 30-minute window.</div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
 <!-- ══ SECTION 8: SPAM TIERS ════════════════════════════════════════════ -->
 <section class="section" id="spam-tiers">
   <div class="section-header">
@@ -576,6 +736,76 @@
   </div>
 
   <p>Engaging with other small accounts (both &lt;100 followers) puts you in the maximum scrutiny tier for that interaction. Engaging with accounts over 1,000 followers puts you in the <code>gt_1000</code> tier — lower scrutiny. This is why getting into conversations with established accounts matters beyond just exposure.</p>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══ SECTION: 6 FOLLOWER TIERS ════════════════════════════════════════ -->
+<section class="section" id="follower-tiers">
+  <div class="section-header">
+    <div class="section-tag">§ 08b — Follower Tier System</div>
+    <h1 class="section-title">The 6 Algorithmic Follower Tiers</h1>
+    <p class="section-subtitle">Beyond the spam threshold at 1K, the algorithm tracks six discrete follower brackets — each with different treatment across retrieval, scoring, and distribution.</p>
+  </div>
+
+  <pre><code><span class="code-comment"># tweet_type_metrics_hydrator.rs — author follower tier flags</span>
+<span class="code-key">AUTHOR_FOLLOWERS_0_100</span>      <span class="code-comment"># maximum scrutiny, limited OON</span>
+<span class="code-key">AUTHOR_FOLLOWERS_100_1K</span>     <span class="code-comment"># high scrutiny</span>
+<span class="code-key">AUTHOR_FOLLOWERS_1K_10K</span>     <span class="code-comment"># scrutiny drops, OON unlocks</span>
+<span class="code-key">AUTHOR_FOLLOWERS_10K_100K</span>   <span class="code-comment"># established tier</span>
+<span class="code-key">AUTHOR_FOLLOWERS_100K_1M</span>    <span class="code-comment"># large account treatment</span>
+<span class="code-key">AUTHOR_FOLLOWERS_1M_PLUS</span>    <span class="code-comment"># top-tier routing</span></code></pre>
+
+  <div class="callout callout-warning">
+    <span class="callout-icon">⚡</span>
+    <div><strong>These aren't just labels — they're routing signals.</strong> Each tier flag is stored in the tweet's type metrics bitset and used in downstream scoring decisions. The algorithm knows which tier you're in for every candidate evaluation. This is why 1K, 10K, and 100K are real inflection points, not just vanity numbers.</div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Tier</th><th>Range</th><th>Algorithmic Reality</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag tag-red">0</span></td><td><strong>0 – 100</strong></td><td>Maximum spam scrutiny. Lowest OON weight. Banger VLM still runs if min traction hit, but distribution is heavily restricted.</td></tr>
+        <tr><td><span class="tag tag-yellow">1</span></td><td><strong>100 – 1K</strong></td><td>High scrutiny. SpamEapi applies lte_500 and lte_1000 sub-tiers. Focus entirely on reaching 1K.</td></tr>
+        <tr><td><span class="tag tag-blue">2</span></td><td><strong>1K – 10K</strong></td><td>Scrutiny drops (gt_1000 tier). OON unlocks meaningfully. Mutual Jaccard signal starts mattering. This is the growth acceleration zone.</td></tr>
+        <tr><td><span class="tag tag-green">3</span></td><td><strong>10K – 100K</strong></td><td>Established routing. Higher confidence author embeddings. DPP diversity model treats you as a strong signal source.</td></tr>
+        <tr><td><span class="tag tag-green">4</span></td><td><strong>100K – 1M</strong></td><td>Large account handling. Following replied users facepile activates at this tier for social proof signals.</td></tr>
+        <tr><td><span class="tag tag-green">5</span></td><td><strong>1M+</strong></td><td>Top-tier routing cluster. Separate inference pathways. Phoenix model has the most confident embedding for these accounts.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══ SECTION: NEW USER MODE ═══════════════════════════════════════════ -->
+<section class="section" id="new-user-mode">
+  <div class="section-header">
+    <div class="section-tag">§ 08c — New User Mode</div>
+    <h1 class="section-title">New User Mode — Separate Clusters &amp; Higher OON</h1>
+    <p class="section-subtitle">Brand-new accounts don't go through the same Phoenix pipeline as established ones. They route to entirely separate inference clusters with different weights.</p>
+  </div>
+
+  <pre><code><span class="code-comment"># home-mixer — new user routing params</span>
+<span class="code-key">NewUserAgeThresholdSecs</span>              <span class="code-comment"># account age cutoff for "new user"</span>
+<span class="code-key">NEW_USER_MIN_FOLLOWING</span>               <span class="code-comment"># min follows needed to exit new-user mode</span>
+<span class="code-key">PhoenixRankerNewUserInferenceClusterId</span>   <span class="code-comment"># separate ranker cluster</span>
+<span class="code-key">PhoenixRetrievalNewUserInferenceClusterId</span> <span class="code-comment"># separate retrieval cluster</span>
+<span class="code-key">NEW_USER_OON_WEIGHT_FACTOR</span>           <span class="code-comment"># higher than standard OON_WEIGHT_FACTOR</span>
+<span class="code-key">EnableNewUserTopicRetrieval</span>          <span class="code-comment"># topic-based retrieval for new users</span></code></pre>
+
+  <div class="callout callout-success">
+    <span class="callout-icon">✅</span>
+    <div><strong>The new account window is real and measurable.</strong> While in new-user mode: your OON weight is higher (less OON penalty), you get topic-based retrieval (trending topics route you to interested audiences immediately), and you're evaluated on a separate ranker cluster tuned for account bootstrapping. This window closes once your account age and following count exceed the thresholds. It is the single best period to grow aggressively.</div>
+  </div>
+
+  <h3>How to Maximise New User Mode</h3>
+  <ul>
+    <li><strong>Post into trending topics immediately</strong> — <code>EnableNewUserTopicRetrieval</code> is active; the algorithm will match your posts to topic audiences before you have followers to seed engagement</li>
+    <li><strong>Follow accounts in your niche fast</strong> — <code>NEW_USER_MIN_FOLLOWING</code> is part of the exit condition; paradoxically, following more people helps build the engagement history Phoenix needs to route you accurately</li>
+    <li><strong>Don't waste this window on low-effort posts</strong> — higher OON weight means more reach per post; each post during new-user mode has structurally more distribution potential than it will after the window closes</li>
+    <li><strong>The window is account-age-gated</strong> — it closes automatically regardless of growth. Use it fully from day one.</li>
+  </ul>
 </section>
 
 <hr class="section-divider">
@@ -638,6 +868,91 @@
 
 <hr class="section-divider">
 
+<!-- ══ SECTION: CONVERSATION DEDUP ══════════════════════════════════════ -->
+<section class="section" id="conversation-dedup">
+  <div class="section-header">
+    <div class="section-tag">§ 10b — Feed Deduplication</div>
+    <h1 class="section-title">Conversation Deduplication</h1>
+    <p class="section-subtitle">Only one post per conversation thread appears in any user's For You feed — the highest-scoring one. This changes how threads, reply chains, and quote stacks work strategically.</p>
+  </div>
+
+  <pre><code><span class="code-comment"># dedup_conversation_filter.rs</span>
+<span class="code-key">group_by</span>: conversation_id   <span class="code-comment"># root of the reply chain</span>
+<span class="code-key">keep</span>:     highest_score      <span class="code-comment"># only the top scorer per conversation</span>
+<span class="code-key">drop</span>:     all others         <span class="code-comment"># even high-scoring duplicates removed</span>
+
+<span class="code-comment"># retweet_deduplication_filter.rs</span>
+<span class="code-key">dedup_key</span>: retweeted_tweet_id <span class="code-comment"># if retweet; else tweet_id</span>
+<span class="code-key">keep</span>:      first occurrence   <span class="code-comment"># first seen wins</span></code></pre>
+
+  <div class="callout callout-warning">
+    <span class="callout-icon">⚡</span>
+    <div><strong>Thread strategy rewrite:</strong> If you post a thread where post 3 goes viral, post 3 is the one that enters For You feeds — not post 1. But post 3 still links back to your full thread. This means each thread post must be independently compelling, not just a continuation. Never make thread post 1 a weak hook that depends on later posts for context.</div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card compare-bad">
+      <div class="compare-header">❌ Wrong Thread Strategy</div>
+      <div class="compare-item">Make post 1 a teaser ("a thread on X...")</div>
+      <div class="compare-item">Rely on post 1 to hook readers into later posts</div>
+      <div class="compare-item">Put your best insight at post 5 or 6</div>
+      <div class="compare-item">Reply to your own thread immediately (same convo)</div>
+    </div>
+    <div class="compare-card compare-good">
+      <div class="compare-header">✅ Correct Thread Strategy</div>
+      <div class="compare-item">Make every post in the thread standalone-valuable</div>
+      <div class="compare-item">Put the highest-value insight early (post 1 or 2)</div>
+      <div class="compare-item">Let the best post pull readers to the full thread</div>
+      <div class="compare-item">Space out major insights to separate conversation roots</div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══ SECTION: ENGAGEMENT VELOCITY ════════════════════════════════════ -->
+<section class="section" id="engagement-velocity">
+  <div class="section-header">
+    <div class="section-tag">§ 10c — Traction Mechanics</div>
+    <h1 class="section-title">Engagement Velocity &amp; Count Hydration</h1>
+    <p class="section-subtitle">Real-time engagement counts are fetched on a TTL-based schedule — new posts are checked more frequently. How fast traction builds is treated as a distinct signal from total traction.</p>
+  </div>
+
+  <pre><code><span class="code-comment"># engagement_counts_hydrator.rs — TTL strategy</span>
+<span class="code-key">new_tweet_ttl</span>    = <span class="code-num">5</span>   minutes  <span class="code-comment"># checked every 5 min when fresh</span>
+<span class="code-key">old_tweet_ttl</span>    = <span class="code-num">10</span>  minutes  <span class="code-comment"># checked every 10 min after threshold</span>
+<span class="code-key">age_threshold</span>    = <span class="code-num">30</span>  minutes  <span class="code-comment"># pivot from "new" to "old" TTL</span>
+<span class="code-key">EnableContextFeatures</span> = <span class="code-val">true</span>    <span class="code-comment"># gates real-time count inclusion</span>
+
+<span class="code-comment"># Counts hydrated: fav_count, reply_count, repost_count, quote_count</span></code></pre>
+
+  <div class="callout callout-danger">
+    <span class="callout-icon">🔑</span>
+    <div><strong>The 30-minute pivot:</strong> For the first 30 minutes, the system re-fetches your engagement counts every 5 minutes. After 30 minutes, it switches to 10-minute intervals. This means engagement that lands in the first 5-minute window after posting has an outsized effect — it's the freshest signal snapshot the algorithm has. The very first replies, likes, and reposts matter disproportionately.</div>
+  </div>
+
+  <div class="signal-grid">
+    <div class="signal-card">
+      <div class="signal-name">0 – 5 MINUTES</div>
+      <div class="signal-desc">First TTL window. Engagement here is captured in the algorithm's very first count snapshot. Highest signal freshness.</div>
+    </div>
+    <div class="signal-card">
+      <div class="signal-name">5 – 30 MINUTES</div>
+      <div class="signal-desc">Still on 5-minute TTL. Each snapshot update can trigger re-scoring and improved OON routing if counts rise sharply.</div>
+    </div>
+    <div class="signal-card">
+      <div class="signal-name">30 MINUTES+</div>
+      <div class="signal-desc">Switches to 10-minute TTL. Engagement still registered but sampled less frequently. Velocity signal starts decaying.</div>
+    </div>
+    <div class="signal-card">
+      <div class="signal-name">VELOCITY VS VOLUME</div>
+      <div class="signal-desc">50 replies in 5 minutes signals differently than 50 replies in 2 hours. Velocity of accumulation is the real signal, not total count.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
 <!-- ══ SECTION 11: DWELL TIME ════════════════════════════════════════════ -->
 <section class="section" id="dwell">
   <div class="section-header">
@@ -662,6 +977,48 @@
   <div class="card card-accent">
     <div class="card-title accent">The Optimal Post Length</div>
     <p style="color:var(--text2); font-size:13.5px; margin-top:8px;">A post that takes 25-30 seconds to read and satisfies the reader earns <strong>the same dwell score as a 3-minute essay</strong>. The dwell ceiling is 30 seconds. Design for that — not more. Hook in the first line. Deliver in the body. Done at 30 seconds.</p>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══ SECTION: CLICK-THROUGH DWELL ════════════════════════════════════ -->
+<section class="section" id="click-dwell">
+  <div class="section-header">
+    <div class="section-tag">§ 11b — Click Signals</div>
+    <h1 class="section-title">Click-Through Dwell Time</h1>
+    <p class="section-subtitle">When someone clicks a link in your post, the algorithm tracks how long they spend on the destination page. This is a separate scored signal from post dwell — and most creators have never considered it.</p>
+  </div>
+
+  <pre><code><span class="code-comment"># Phoenix model — click signal breakdown</span>
+<span class="code-key">click_score</span>              <span class="code-comment"># binary: did they click the link at all?</span>
+<span class="code-key">ContClickDwellTimeWeight</span> <span class="code-comment"># continuous: how long did they stay after clicking?</span>
+
+<span class="code-comment"># These are two separate action scores — both tracked independently</span>
+<span class="code-comment"># ContClickDwellTimeWeight applies the same normalization as post dwell</span></code></pre>
+
+  <div class="callout callout-warning">
+    <span class="callout-icon">⚡</span>
+    <div><strong>Your link destination quality is scored.</strong> If you link to a page that people immediately bounce from (click and close in 2 seconds), that generates a low click dwell score. If they stay and read for 20+ seconds, that's a high signal. Linking to low-quality, clickbait, or slow-loading pages actively hurts your post's score. Link only to content worth reading.</div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card compare-bad">
+      <div class="compare-header">❌ Link Choices That Hurt</div>
+      <div class="compare-item">Clickbait headlines — visitors bounce immediately</div>
+      <div class="compare-item">Slow-loading pages — people abandon before reading</div>
+      <div class="compare-item">Paywalled content — reader leaves instantly</div>
+      <div class="compare-item">Landing pages with no real content</div>
+      <div class="compare-item">Links irrelevant to the post text</div>
+    </div>
+    <div class="compare-card compare-good">
+      <div class="compare-header">✅ Link Choices That Help</div>
+      <div class="compare-item">Long-form articles that match the post topic exactly</div>
+      <div class="compare-item">Your own content (blog, newsletter, thread)</div>
+      <div class="compare-item">Data / research people actually read through</div>
+      <div class="compare-item">Fast-loading pages with immediate value</div>
+      <div class="compare-item">Content that earns 20+ seconds of attention</div>
+    </div>
   </div>
 </section>
 
@@ -692,6 +1049,53 @@
   </div>
 
   <p>Video that qualifies for VQV earns signal on top of all other engagement actions — likes, replies, DMs, follows still all fire independently. A qualifying video with strong engagement is the highest-ceiling format in the algorithm when executed well.</p>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══ SECTION: VIDEO DURATION TIERS ════════════════════════════════════ -->
+<section class="section" id="video-tiers">
+  <div class="section-header">
+    <div class="section-tag">§ 12b — Video Length Buckets</div>
+    <h1 class="section-title">Video Duration Tiers</h1>
+    <p class="section-subtitle">The algorithm doesn't just see "video" — it classifies every video into one of three discrete length buckets, each likely treated differently beyond just the VQV gate.</p>
+  </div>
+
+  <pre><code><span class="code-comment"># tweet_type_metrics_hydrator.rs — video duration buckets</span>
+<span class="code-key">VIDEO_LTE_10_SEC</span>     <span class="code-comment"># ≤10 seconds  — fails VQV gate, no VQV weight</span>
+<span class="code-key">VIDEO_BT_10_60_SEC</span>   <span class="code-comment"># 10–60 seconds — may clear VQV gate</span>
+<span class="code-key">VIDEO_GT_60_SEC</span>      <span class="code-comment"># >60 seconds  — clearly above VQV gate</span></code></pre>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Bucket</th><th>Duration</th><th>VQV Weight</th><th>Strategy</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="tag tag-red">Short</span></td>
+          <td>&lt;10s</td>
+          <td style="color:var(--red);">0.0 (nulled)</td>
+          <td>No VQV signal at all. Relies entirely on other action scores (likes, replies, DMs). Only worth posting if engagement quality compensates.</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-yellow">Mid</span></td>
+          <td>10–60s</td>
+          <td style="color:var(--yellow);">Conditional</td>
+          <td>May clear MIN_VIDEO_DURATION_MS. This is the highest-risk zone — slightly below the threshold nulls VQV entirely. Know the exact cutoff before committing to this length.</td>
+        </tr>
+        <tr>
+          <td><span class="tag tag-green">Long</span></td>
+          <td>&gt;60s</td>
+          <td style="color:var(--green);">Full VQV</td>
+          <td>Safely above the VQV gate. Earns VQV weight on top of all other engagement actions. The highest-ceiling video format in the system.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💡</span>
+    <div><strong>Practical rule:</strong> Never post a video in the 10–60s range without being certain it clears <code>MIN_VIDEO_DURATION_MS</code>. The safe strategy is to commit to videos clearly above 60 seconds, which guarantees VQV eligibility regardless of how the exact threshold is configured. Short-form clips under 10s should be treated as image-equivalent posts for scoring purposes — plan their engagement strategy accordingly.</div>
+  </div>
 </section>
 
 <hr class="section-divider">

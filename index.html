@@ -11,17 +11,24 @@
 <!-- ══ NAVBAR ══════════════════════════════════════════════════════════ -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a class="nav-logo" href="#">
-      <svg viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      Algorithm Guide
-    </a>
-    <ul class="nav-links">
-      <li><a href="#" data-section="overview">Overview</a></li>
-      <li><a href="#" data-section="scoring">Scoring</a></li>
-      <li><a href="#" data-section="banger">Virality</a></li>
-      <li><a href="#" data-section="growth-plan">Growth Plan</a></li>
-      <li><span class="nav-badge">Source Code</span></li>
-    </ul>
+    <div class="nav-brand">
+      <a class="nav-logo" href="#">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <span>Algorithm Docs</span>
+      </a>
+    </div>
+    <div class="nav-sep"></div>
+    <span class="nav-section-label">Growth System</span>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#" data-section="overview">Overview</a></li>
+        <li><a href="#" data-section="scoring">Scoring</a></li>
+        <li><a href="#" data-section="banger">Virality</a></li>
+        <li><a href="#" data-section="growth-plan">Growth Plan</a></li>
+      </ul>
+      <div class="nav-divider"></div>
+      <span class="nav-badge">Source Code</span>
+    </div>
   </div>
 </nav>
 
@@ -31,11 +38,11 @@
   <div class="sidebar-group">
     <div class="sidebar-group-label">The System</div>
     <a class="sidebar-link" data-section="overview">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm0 1.5a5.5 5.5 0 110 11 5.5 5.5 0 010-11zm0 2.5a.75.75 0 00-.75.75v3.25H4.5a.75.75 0 000 1.5h3.5a.75.75 0 00.75-.75V5.75A.75.75 0 008 5z"/></svg>
-      Overview & Formula
+      <span class="sidebar-dot"></span>
+      Overview &amp; Formula
     </a>
     <a class="sidebar-link" data-section="scoring">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 010 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 010 1.5H1.75A.75.75 0 011 7.75zm0 5A.75.75 0 011.75 12h12.5a.75.75 0 010 1.5H1.75A.75.75 0 011 12.75z"/></svg>
+      <span class="sidebar-dot"></span>
       Weight Hierarchy
     </a>
   </div>
@@ -43,39 +50,39 @@
   <div class="sidebar-group">
     <div class="sidebar-group-label">Ranking Mechanics</div>
     <a class="sidebar-link" data-section="phoenix">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"/></svg>
+      <span class="sidebar-dot"></span>
       What Phoenix Learns
     </a>
     <a class="sidebar-link" data-section="decay">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M1.75 2.5a.75.75 0 000 1.5h10.042L1.22 14.57a.75.75 0 101.06 1.06L12.855 5.06v9.19a.75.75 0 001.5 0V2.5H1.75z"/></svg>
+      <span class="sidebar-dot"></span>
       Author Diversity Decay
     </a>
     <a class="sidebar-link" data-section="oon">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zM4.5 7.5h7a.5.5 0 010 1h-7a.5.5 0 010-1z"/></svg>
+      <span class="sidebar-dot"></span>
       OON Scoring
     </a>
     <a class="sidebar-link" data-section="retrieval">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M6.5 1a5.5 5.5 0 104.385 8.824l2.646 2.647a.75.75 0 001.06-1.06l-2.646-2.647A5.5 5.5 0 006.5 1zM2.5 6.5a4 4 0 118 0 4 4 0 01-8 0z"/></svg>
+      <span class="sidebar-dot"></span>
       Retrieval System
     </a>
   </div>
 
   <div class="sidebar-group">
-    <div class="sidebar-group-label">Timing & Filters</div>
+    <div class="sidebar-group-label">Timing &amp; Filters</div>
     <a class="sidebar-link" data-section="cliff">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm.75 4.25v4.5a.75.75 0 01-1.5 0v-4.5a.75.75 0 011.5 0zM8 11a1 1 0 110 2 1 1 0 010-2z"/></svg>
+      <span class="sidebar-dot"></span>
       The 80-Hour Cliff
     </a>
     <a class="sidebar-link" data-section="spam-tiers">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm3.97 11.03a.75.75 0 11-1.04 1.08l-2.45-2.36-2.45 2.36a.75.75 0 11-1.04-1.08L7.42 8.6 4.98 6.21a.75.75 0 111.04-1.08L8.47 7.5l2.45-2.37a.75.75 0 111.04 1.08L9.52 8.6l2.45 2.43z"/></svg>
+      <span class="sidebar-dot"></span>
       Spam Filter Tiers
     </a>
     <a class="sidebar-link" data-section="seen-filter">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/><path d="M1 8s2.5-5 7-5 7 5 7 5-2.5 5-7 5S1 8 1 8zm7 3.5a3.5 3.5 0 100-7 3.5 3.5 0 000 7z"/></svg>
+      <span class="sidebar-dot"></span>
       Seen Posts Filter
     </a>
     <a class="sidebar-link" data-section="content-filters">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M1 3.5A.5.5 0 011.5 3h13a.5.5 0 010 1h-13A.5.5 0 011 3.5zM3 8a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9A.5.5 0 013 8zm2 4.5a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5z"/></svg>
+      <span class="sidebar-dot"></span>
       Content Filters
     </a>
   </div>
@@ -83,19 +90,19 @@
   <div class="sidebar-group">
     <div class="sidebar-group-label">Content Signals</div>
     <a class="sidebar-link" data-section="dwell">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zM4.5 7.5h3V4.5a.5.5 0 011 0v3.5a.5.5 0 01-.5.5h-3.5a.5.5 0 010-1z"/></svg>
+      <span class="sidebar-dot"></span>
       Dwell Time (30s Rule)
     </a>
     <a class="sidebar-link" data-section="video">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2.5 3.5a1 1 0 00-1 1v7a1 1 0 001 1H10a1 1 0 001-1v-2l3 2v-7l-3 2v-2a1 1 0 00-1-1H2.5z"/></svg>
-      Video & VQV Gate
+      <span class="sidebar-dot"></span>
+      Video &amp; VQV Gate
     </a>
     <a class="sidebar-link" data-section="signals19">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zM5 8a3 3 0 106 0A3 3 0 005 8z"/></svg>
+      <span class="sidebar-dot"></span>
       19-Action Model
     </a>
     <a class="sidebar-link" data-section="formatting">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A.5.5 0 012.5 2h11a.5.5 0 010 1h-11A.5.5 0 012 2.5zm0 4A.5.5 0 012.5 6h11a.5.5 0 010 1h-11A.5.5 0 012 6.5zm0 4A.5.5 0 012.5 10h7a.5.5 0 010 1h-7a.5.5 0 01-.5-.5z"/></svg>
+      <span class="sidebar-dot"></span>
       Formatting Facts
     </a>
   </div>
@@ -103,23 +110,23 @@
   <div class="sidebar-group">
     <div class="sidebar-group-label">Virality System</div>
     <a class="sidebar-link" data-section="banger">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M9.663.415a.75.75 0 01.274 1.024L8.5 3.5h3.25a.75.75 0 01.6 1.2l-5.5 7.25a.75.75 0 01-1.374-.45L6 9H2.75a.75.75 0 01-.6-1.2l5.5-7.25a.75.75 0 011.013-.135z"/></svg>
+      <span class="sidebar-dot"></span>
       Banger System
     </a>
     <a class="sidebar-link" data-section="min-traction">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm.25 4.75a.75.75 0 00-1.5 0v4l-1.97-1.97a.75.75 0 00-1.06 1.06l3.25 3.25a.75.75 0 001.06 0L11.28 7.84a.75.75 0 00-1.06-1.06l-1.97 1.97v-4z"/></svg>
+      <span class="sidebar-dot"></span>
       Min Traction Gate
     </a>
     <a class="sidebar-link" data-section="slop">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm0 2a5 5 0 110 10A5 5 0 018 3zm-.75 4.75v2.5a.75.75 0 001.5 0v-2.5a.75.75 0 00-1.5 0zM8 11a1 1 0 110 2 1 1 0 010-2z"/></svg>
+      <span class="sidebar-dot"></span>
       Slop Score
     </a>
     <a class="sidebar-link" data-section="vlm">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2.5 2A.5.5 0 002 2.5v11a.5.5 0 00.5.5h11a.5.5 0 00.5-.5v-11a.5.5 0 00-.5-.5h-11zM3 3h10v10H3V3zm2 2v2h2V5H5zm4 0v2h2V5H9z"/></svg>
+      <span class="sidebar-dot"></span>
       VLM Explained
     </a>
     <a class="sidebar-link" data-section="flywheel">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zM3.5 8a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zm4.5-2a2 2 0 100 4 2 2 0 000-4z"/></svg>
+      <span class="sidebar-dot"></span>
       Viral Flywheel
     </a>
   </div>
@@ -127,14 +134,15 @@
   <div class="sidebar-group">
     <div class="sidebar-group-label">Growth Playbook</div>
     <a class="sidebar-link" data-section="growth-plan">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M1.75 14.25a.75.75 0 010-1.5h3v-8.5a.75.75 0 011.5 0v8.5h3v-5.5a.75.75 0 011.5 0v5.5h3a.75.75 0 010 1.5H1.75z"/></svg>
+      <span class="sidebar-dot"></span>
       100 → 10,000 Plan
     </a>
     <a class="sidebar-link" data-section="principle">
-      <svg class="sidebar-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm1.25 11.25a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0zm-.25-7.5a1 1 0 00-2 0v4a1 1 0 002 0v-4z"/></svg>
+      <span class="sidebar-dot"></span>
       The Core Principle
     </a>
   </div>
+
 </aside>
 
 <!-- ══ MAIN CONTENT ══════════════════════════════════════════════════════ -->
@@ -143,15 +151,42 @@
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-eyebrow"><span></span>Reverse Engineered from Source Code</div>
-  <h1 class="hero-title">The <em>X Algorithm</em><br>Growth System</h1>
+  <div class="hero-badge">
+    <span class="hero-badge-dot"></span>
+    Reverse Engineered from Source Code
+  </div>
+  <h1 class="hero-title">The X Algorithm<br><em>Growth System</em></h1>
   <p class="hero-desc">Every scoring weight, filter, ML model config, and viral mechanic decoded directly from the home-mixer, thunder, phoenix, and grox source code. No speculation. No guesswork.</p>
   <div class="hero-stats">
     <div class="hero-stat"><span class="hero-stat-num">19</span><span class="hero-stat-label">Tracked Actions</span></div>
     <div class="hero-stat"><span class="hero-stat-num">80h</span><span class="hero-stat-label">Hard Distribution Cliff</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">0.4</span><span class="hero-stat-label">Banger Score Threshold</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">128</span><span class="hero-stat-label">User History Actions</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">1K</span><span class="hero-stat-label">Spam Tier Threshold</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">0.4</span><span class="hero-stat-label">Banger Threshold</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">128</span><span class="hero-stat-label">History Actions</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">1K</span><span class="hero-stat-label">Spam Tier Break</span></div>
+  </div>
+</div>
+
+<!-- Quick Start Cards -->
+<div class="quick-cards">
+  <div class="quick-card">
+    <div class="quick-card-icon">⚡</div>
+    <div class="quick-card-title">The Scoring Formula</div>
+    <div class="quick-card-desc">How Phoenix combines 19 predicted action probabilities into a single final score that determines your placement.</div>
+  </div>
+  <div class="quick-card">
+    <div class="quick-card-icon">🔑</div>
+    <div class="quick-card-title">The Min Traction Gate</div>
+    <div class="quick-card-desc">The hidden gate: Grok's Banger classifier only runs on posts that already crossed a minimum engagement threshold.</div>
+  </div>
+  <div class="quick-card">
+    <div class="quick-card-icon">🎯</div>
+    <div class="quick-card-title">The Viral Flywheel</div>
+    <div class="quick-card-desc">The complete path from publishing to going viral — every step derived from source code mechanics.</div>
+  </div>
+  <div class="quick-card">
+    <div class="quick-card-icon">📈</div>
+    <div class="quick-card-title">100 → 10K Growth Plan</div>
+    <div class="quick-card-desc">Three stages with different algorithmic contexts. Stage 1 priority: escape the spam tier before anything else.</div>
   </div>
 </div>
 
@@ -251,7 +286,7 @@
         </tr>
         <tr>
           <td><span class="rank-badge rank-n">4</span></td>
-          <td><strong>Retweet/Repost</strong></td>
+          <td><strong>Retweet / Repost</strong></td>
           <td><span class="tag tag-blue">RETWEET_WEIGHT</span></td>
           <td>High weight — reposts distribute your content to completely new follower graphs.</td>
         </tr>
@@ -282,7 +317,7 @@
         <tr>
           <td><span class="rank-badge rank-n">9</span></td>
           <td><strong>Dwell Time</strong></td>
-          <td><span class="tag tag-blue">DWELL_WEIGHT / CONT_DWELL_TIME_WEIGHT</span></td>
+          <td><span class="tag tag-blue">DWELL_WEIGHT</span></td>
           <td>Medium — caps at exactly 30 seconds. Binary dwell + continuous dwell time both tracked separately.</td>
         </tr>
         <tr>
@@ -298,12 +333,6 @@
           <td>Tapping to expand an image is a tracked signal. Use images that reward zooming in.</td>
         </tr>
         <tr>
-          <td><span class="rank-badge rank-n">12</span></td>
-          <td><strong>Quoted VQV</strong></td>
-          <td><span class="tag tag-blue">QUOTED_VQV_WEIGHT</span></td>
-          <td>Video quality views on content you quoted. Quoting good video content amplifies this.</td>
-        </tr>
-        <tr>
           <td><span class="rank-badge rank-neg">—</span></td>
           <td><strong>Not Interested</strong></td>
           <td><span class="tag tag-red">NOT_INTERESTED_WEIGHT</span></td>
@@ -317,21 +346,9 @@
         </tr>
         <tr>
           <td><span class="rank-badge rank-neg">—</span></td>
-          <td><strong>Mute Author</strong></td>
-          <td><span class="tag tag-red">MUTE_AUTHOR_WEIGHT</span></td>
-          <td>Negative signal. Accumulation tanks your author embedding.</td>
-        </tr>
-        <tr>
-          <td><span class="rank-badge rank-neg">—</span></td>
-          <td><strong>Block Author</strong></td>
-          <td><span class="tag tag-red">BLOCK_AUTHOR_WEIGHT</span></td>
-          <td>Very negative. Uses NEGATIVE_WEIGHTS_SUM ratio penalty.</td>
-        </tr>
-        <tr>
-          <td><span class="rank-badge rank-neg">—</span></td>
-          <td><strong>Report</strong></td>
-          <td><span class="tag tag-red">REPORT_WEIGHT</span></td>
-          <td>Most negative. One report campaign is worse than weeks of low engagement.</td>
+          <td><strong>Mute / Block / Report</strong></td>
+          <td><span class="tag tag-red">MUTE / BLOCK / REPORT</span></td>
+          <td>Very negative. Uses NEGATIVE_WEIGHTS_SUM ratio penalty — not subtraction. One report wave tanks distribution for weeks.</td>
         </tr>
       </tbody>
     </table>
@@ -339,13 +356,13 @@
 
   <div class="callout callout-danger">
     <span class="callout-icon">⚠️</span>
-    <strong>Negative signal formula:</strong> The algorithm uses a separate path for negative signals via <code>NEGATIVE_WEIGHTS_SUM</code>. They apply a <strong>ratio multiplier</strong> against your score — not a simple subtraction. One coordinated report/block wave can kneecap your distribution for weeks.
+    <div><strong>Negative signal formula:</strong> The algorithm uses a separate path for negative signals via <code>NEGATIVE_WEIGHTS_SUM</code>. They apply a <strong>ratio multiplier</strong> against your score — not a simple subtraction. One coordinated report/block wave can kneecap your distribution for weeks.</div>
   </div>
 </section>
 
 <hr class="section-divider">
 
-<!-- ══ SECTION 3: PHOENIX / WHAT MODEL LEARNS ════════════════════════════ -->
+<!-- ══ SECTION 3: PHOENIX ════════════════════════════════════════════════ -->
 <section class="section" id="phoenix">
   <div class="section-header">
     <div class="section-tag">§ 03 — ML Model</div>
@@ -379,7 +396,7 @@
 
   <div class="callout">
     <span class="callout-icon">💡</span>
-    <strong>Candidate Isolation:</strong> Candidates in the ranking batch cannot attend to each other in the transformer — only self-attention. This means your post's score is computed independently of what else is in the batch. Scores are deterministic and batch-size-independent.
+    <div><strong>Candidate Isolation:</strong> Candidates in the ranking batch cannot attend to each other in the transformer — only self-attention. This means your post's score is computed independently of what else is in the batch. Scores are deterministic and batch-size-independent.</div>
   </div>
 
   <h3>Why Topic Consistency Matters</h3>
@@ -429,7 +446,7 @@
 
   <div class="callout callout-warning">
     <span class="callout-icon">⚡</span>
-    <strong>The decay resets per feed load.</strong> Every time a user opens the app or refreshes, the author decay counter resets for all authors. This means spacing posts by 3+ hours ensures each post enters a new feed load at 1.0× multiplier instead of 0.94× or lower.
+    <div><strong>The decay resets per feed load.</strong> Every time a user opens the app or refreshes, the author decay counter resets for all authors. This means spacing posts by 3+ hours ensures each post enters a new feed load at 1.0× multiplier instead of 0.94× or lower.</div>
   </div>
 
   <h3>Practical Rules</h3>
@@ -461,7 +478,7 @@
 
   <div class="callout callout-success">
     <span class="callout-icon">✅</span>
-    <strong>New Account Advantage:</strong> Small accounts get a higher OON weight via <code>NEW_USER_OON_WEIGHT_FACTOR</code>. The algorithm is explicitly more generous with discovery for accounts with few followers. This is your best growth window — the OON penalty is smallest when you're starting out.
+    <div><strong>New Account Advantage:</strong> Small accounts get a higher OON weight via <code>NEW_USER_OON_WEIGHT_FACTOR</code>. The algorithm is explicitly more generous with discovery for accounts with few followers. This is your best growth window — the OON penalty is smallest when you're starting out.</div>
   </div>
 
   <p>To beat the OON penalty your post needs a much higher base score than in-network posts. This is why viral posts need critical mass early — they need enough engagement signal to overcome the OON penalty and still rank highly for strangers. Seeding early engagement is not optional; it's structurally required to reach non-followers.</p>
@@ -479,12 +496,12 @@
 
   <div class="card card-accent">
     <div class="card-title accent">Thunder — In-Network Store</div>
-    <p style="margin:8px 0 0; color:var(--text2); font-size:14px;">Real-time Kafka-based per-user post store. Your posts automatically appear here for every follower at sub-millisecond latency. Handles original posts, replies, reposts, and video posts in separate stores per user. Posts auto-trimmed after retention period.</p>
+    <p style="margin:8px 0 0; color:var(--text2); font-size:13.5px;">Real-time Kafka-based per-user post store. Your posts automatically appear here for every follower at sub-millisecond latency. Handles original posts, replies, reposts, and video posts in separate stores per user. Posts auto-trimmed after retention period.</p>
   </div>
 
   <div class="card card-accent">
     <div class="card-title accent">Phoenix — Out-of-Network Two-Tower Model</div>
-    <p style="margin:8px 0 0; color:var(--text2); font-size:14px;">ML similarity model. Your post only appears as an OON candidate if its embedding is similar enough to a viewer's history. New users route to <code>PhoenixRetrievalNewUserInferenceClusterId</code> using topic-based retrieval until they have enough history. Trending topics = entry into this pipeline.</p>
+    <p style="margin:8px 0 0; color:var(--text2); font-size:13.5px;">ML similarity model. Your post only appears as an OON candidate if its embedding is similar enough to a viewer's history. New users route to <code>PhoenixRetrievalNewUserInferenceClusterId</code> using topic-based retrieval until they have enough history. Trending topics = entry into this pipeline.</p>
   </div>
 
   <h3>Other Candidate Sources</h3>
@@ -492,7 +509,7 @@
 
   <div class="callout">
     <span class="callout-icon">💡</span>
-    <strong>A/B routing:</strong> Decider flags like <code>enable_phoenix_retrieval_lap7_to_fou</code> and <code>enable_phoenix_retrieval_fou_to_lap7</code> allow real-time cluster switching for experiments. The algorithm is constantly A/B testing your content routing.
+    <div><strong>A/B routing:</strong> Decider flags like <code>enable_phoenix_retrieval_lap7_to_fou</code> and <code>enable_phoenix_retrieval_fou_to_lap7</code> allow real-time cluster switching for experiments. The algorithm is constantly A/B testing your content routing.</div>
   </div>
 </section>
 
@@ -515,14 +532,14 @@
 
   <div class="callout callout-danger">
     <span class="callout-icon">⏰</span>
-    <strong>Hard deadline:</strong> All promotion, seeding, and engagement must happen within 80 hours. There is no organic rediscovery of old posts in the For You feed. The first 6 hours matter most — maximum engagement velocity early seeds OON distribution for the remaining 74 hours.
+    <div><strong>Hard deadline:</strong> All promotion, seeding, and engagement must happen within 80 hours. There is no organic rediscovery of old posts in the For You feed. The first 6 hours matter most — maximum engagement velocity early seeds OON distribution for the remaining 74 hours.</div>
   </div>
 
   <h3>What This Means</h3>
   <ul>
     <li>Post when your most engaged followers are online so they seed the algorithm fast</li>
     <li>Every hour of delayed engagement is an hour of diminishing distribution window</li>
-    <li>Don't post and disappear — be active for the first 2-3 hours after posting to respond to replies (which generate more reply-weight signals)</li>
+    <li>Don't post and disappear — be active for the first 2-3 hours after posting to respond to replies</li>
     <li>There is no such thing as a post that "blows up later" unless it's being deliberately promoted</li>
   </ul>
 </section>
@@ -545,7 +562,7 @@
 
   <div class="callout callout-warning">
     <span class="callout-icon">⚡</span>
-    <strong>The 1,000 threshold changes everything.</strong> Under 1,000 followers, your content AND all your engagements are scrutinized more aggressively. Getting to 1,000+ unlocks the lower-scrutiny tier. This single milestone changes how the entire system treats you.
+    <div><strong>The 1,000 threshold changes everything.</strong> Under 1,000 followers, your content AND all your engagements are scrutinized more aggressively. Getting to 1,000+ unlocks the lower-scrutiny tier. This single milestone changes how the entire system treats you.</div>
   </div>
 
   <p>Engaging with other small accounts (both &lt;100 followers) puts you in the maximum scrutiny tier for that interaction. Engaging with accounts over 1,000 followers puts you in the <code>gt_1000</code> tier — lower scrutiny. This is why getting into conversations with established accounts matters beyond just exposure.</p>
@@ -568,11 +585,9 @@
 <span class="code-comment"># Also: PreviouslyServedPostsFilter (within session)</span>
 <span class="code-comment"># Also: PreviouslySeenPostsBackupFilter (fallback)</span></code></pre>
 
-  <p>The bloom filter has a configurable false-positive rate — it occasionally suppresses posts not actually seen, but the system is effectively one-shot per user. The client sends its bloom filter state with each request so the server can check across sessions.</p>
-
   <div class="callout">
     <span class="callout-icon">💡</span>
-    <strong>Routing quality matters:</strong> The algorithm decides who to show your post to based on predicted engagement. If early impressions go to low-engagement users, those impressions are burned. Seeding from your most engaged followers teaches the algorithm your real audience — improving routing for every remaining impression.
+    <div><strong>Routing quality matters:</strong> The algorithm decides who to show your post to based on predicted engagement. If early impressions go to low-engagement users, those impressions are burned. Seeding from your most engaged followers teaches the algorithm your real audience — improving routing for every remaining impression.</div>
   </div>
 </section>
 
@@ -604,7 +619,7 @@
 
   <div class="callout callout-danger">
     <span class="callout-icon">⚠️</span>
-    <strong>Two passes:</strong> The <strong>VFFilter</strong> runs post-selection — after scoring. Even posts that score well can be dropped at this second stage via <code>Action::Drop</code>. Your post passes two content filters, not one.
+    <div><strong>Two passes:</strong> The <strong>VFFilter</strong> runs post-selection — after scoring. Even posts that score well can be dropped at this second stage via <code>Action::Drop</code>. Your post passes two content filters, not one.</div>
   </div>
 
   <h3>Grox Plans That Run on Every Post</h3>
@@ -631,12 +646,12 @@
 <span class="code-comment"># 60s → 1.0  (same as 30s — no additional benefit)</span>
 
 <span class="code-comment"># Two separate signals tracked:</span>
-<span class="code-key">DWELL_WEIGHT</span>          <span class="code-comment"># binary: paused at all?</span>
+<span class="code-key">DWELL_WEIGHT</span>           <span class="code-comment"># binary: paused at all?</span>
 <span class="code-key">CONT_DWELL_TIME_WEIGHT</span> <span class="code-comment"># continuous: how long?</span></code></pre>
 
   <div class="card card-accent">
     <div class="card-title accent">The Optimal Post Length</div>
-    <p style="color:var(--text2); font-size:14px; margin-top:8px;">A post that takes 25-30 seconds to read and satisfies the reader earns <strong>the same dwell score as a 3-minute essay</strong>. The dwell ceiling is 30 seconds. Design for that — not more. Hook in the first line. Deliver in the body. Done at 30 seconds.</p>
+    <p style="color:var(--text2); font-size:13.5px; margin-top:8px;">A post that takes 25-30 seconds to read and satisfies the reader earns <strong>the same dwell score as a 3-minute essay</strong>. The dwell ceiling is 30 seconds. Design for that — not more. Hook in the first line. Deliver in the body. Done at 30 seconds.</p>
   </div>
 </section>
 
@@ -646,7 +661,7 @@
 <section class="section" id="video">
   <div class="section-header">
     <div class="section-tag">§ 12 — Video Scoring</div>
-    <h1 class="section-title">Video & The VQV Gate</h1>
+    <h1 class="section-title">Video &amp; The VQV Gate</h1>
     <p class="section-subtitle">Short videos lose an entire scoring category. Video only helps if you clear the minimum duration threshold.</p>
   </div>
 
@@ -663,7 +678,7 @@
 
   <div class="callout callout-warning">
     <span class="callout-icon">⚡</span>
-    <strong>Binary gate:</strong> A video slightly below <code>MIN_VIDEO_DURATION_MS</code> gets zero VQV weight — not reduced weight. The entire scoring category is nulled. Commit to a length above the threshold or don't rely on video for VQV signal.
+    <div><strong>Binary gate:</strong> A video slightly below <code>MIN_VIDEO_DURATION_MS</code> gets zero VQV weight — not reduced weight. The entire scoring category is nulled. Commit to a length above the threshold or don't rely on video for VQV signal.</div>
   </div>
 
   <p>Video that qualifies for VQV earns signal on top of all other engagement actions — likes, replies, DMs, follows still all fire independently. A qualifying video with strong engagement is the highest-ceiling format in the algorithm when executed well.</p>
@@ -694,7 +709,7 @@
     </div>
     <div class="signal-card">
       <div class="signal-name">share_via_copy_link_score</div>
-      <div class="signal-desc">Tracks external sharing. Discord, WhatsApp, email shares register here if link was copied.</div>
+      <div class="signal-desc">Tracks external sharing. Discord, WhatsApp, email shares register if link was copied.</div>
     </div>
     <div class="signal-card">
       <div class="signal-name">quote_score</div>
@@ -706,7 +721,7 @@
     </div>
     <div class="signal-card">
       <div class="signal-name">photo_expand_score</div>
-      <div class="signal-desc">Tapping to zoom an image is tracked. Use images that reward expanding — charts, dense infographics, screenshots.</div>
+      <div class="signal-desc">Tapping to zoom an image is tracked. Use images that reward expanding — charts, infographics, screenshots.</div>
     </div>
     <div class="signal-card">
       <div class="signal-name">profile_click_score</div>
@@ -714,15 +729,7 @@
     </div>
     <div class="signal-card">
       <div class="signal-name">vqv_score</div>
-      <div class="signal-desc">Video quality view — watching past threshold. Only activates on videos above MIN_VIDEO_DURATION_MS.</div>
-    </div>
-    <div class="signal-card">
-      <div class="signal-name">quoted_vqv_score</div>
-      <div class="signal-desc">VQV on the video post you quoted. Quoting strong video content activates this.</div>
-    </div>
-    <div class="signal-card">
-      <div class="signal-name">quoted_click_score</div>
-      <div class="signal-desc">Clicks on the post you quoted. Quoting controversial/interesting posts drives people to click through.</div>
+      <div class="signal-desc">Video quality view. Only activates on videos above MIN_VIDEO_DURATION_MS threshold.</div>
     </div>
     <div class="signal-card">
       <div class="signal-name">dwell_score + dwell_time</div>
@@ -740,23 +747,23 @@
 
   <h3>Negative Action Scores</h3>
   <div class="signal-grid">
-    <div class="signal-card" style="border-color: rgba(244,33,46,0.2);">
+    <div class="signal-card" style="border-color: rgba(239,68,68,0.15);">
       <div class="signal-name" style="color:var(--red);">not_interested_score</div>
       <div class="signal-desc">Negative weight. Applies ratio penalty via NEGATIVE_WEIGHTS_SUM formula.</div>
     </div>
-    <div class="signal-card" style="border-color: rgba(244,33,46,0.2);">
+    <div class="signal-card" style="border-color: rgba(239,68,68,0.15);">
       <div class="signal-name" style="color:var(--red);">not_dwelled_score</div>
       <div class="signal-desc">Scroll-past is actively negative. People skipping hurts your score.</div>
     </div>
-    <div class="signal-card" style="border-color: rgba(244,33,46,0.2);">
+    <div class="signal-card" style="border-color: rgba(239,68,68,0.15);">
       <div class="signal-name" style="color:var(--red);">mute_author_score</div>
       <div class="signal-desc">Negative. Accumulation over time tanks your author embedding quality.</div>
     </div>
-    <div class="signal-card" style="border-color: rgba(244,33,46,0.2);">
+    <div class="signal-card" style="border-color: rgba(239,68,68,0.15);">
       <div class="signal-name" style="color:var(--red);">block_author_score</div>
       <div class="signal-desc">Very negative. One coordinated block wave can suppress distribution for weeks.</div>
     </div>
-    <div class="signal-card" style="border-color: rgba(244,33,46,0.2);">
+    <div class="signal-card" style="border-color: rgba(239,68,68,0.15);">
       <div class="signal-name" style="color:var(--red);">report_score</div>
       <div class="signal-desc">Most negative. Never post content that could trigger coordinated reports even if it might perform well.</div>
     </div>
@@ -775,22 +782,22 @@
 
   <div class="card card-danger">
     <div class="card-title red">MYTH: Lowercase Text Boosts Reach</div>
-    <p style="color:var(--text2); font-size:14px; margin-top:8px;">Zero mention of letter case anywhere in the algorithm code. Phoenix represents posts as hash embeddings — it does not parse sentences. The "lowercase boosts reach" claim has no algorithmic basis. Letter case is completely invisible to the scoring system. Any effect is indirect: lowercase may feel more authentic to some audiences → better human engagement → indirect score improvement.</p>
+    <p style="color:var(--text2); font-size:13.5px; margin-top:8px;">Zero mention of letter case anywhere in the algorithm code. Phoenix represents posts as hash embeddings — it does not parse sentences. The "lowercase boosts reach" claim has no algorithmic basis. Letter case is completely invisible to the scoring system. Any effect is indirect: lowercase may feel more authentic to some audiences → better human engagement → indirect score improvement.</p>
   </div>
 
   <div class="card">
     <div class="card-title">Articles / Long-form</div>
-    <p style="color:var(--text2); font-size:14px; margin-top:8px;">No dedicated article boost in the scoring code. The product surface enum has 16 values but no special "article" multiplier. Long-form naturally earns more dwell time, and if the content converts readers to followers it's worth it. Otherwise a shorter post with equivalent engagement signals scores the same.</p>
+    <p style="color:var(--text2); font-size:13.5px; margin-top:8px;">No dedicated article boost in the scoring code. The product surface enum has 16 values but no special "article" multiplier. Long-form naturally earns more dwell time, and if the content converts readers to followers it's worth it. Otherwise a shorter post with equivalent engagement signals scores the same.</p>
   </div>
 
   <div class="card">
     <div class="card-title">Communities</div>
-    <p style="color:var(--text2); font-size:14px; margin-top:8px;">No dedicated weight multiplier for community posts in the scoring code. However, community audiences are pre-qualified for specific topics → naturally higher engagement rates → better ML predictions → higher predicted action probabilities. The real benefit: communities concentrate your engagement in a specific topic, strengthening your author embedding and improving For You routing for all your regular posts over time.</p>
+    <p style="color:var(--text2); font-size:13.5px; margin-top:8px;">No dedicated weight multiplier for community posts in the scoring code. However, community audiences are pre-qualified for specific topics → naturally higher engagement rates → better ML predictions → higher predicted action probabilities. The real benefit: communities concentrate your engagement in a specific topic, strengthening your author embedding and improving For You routing for all your regular posts over time.</p>
   </div>
 
   <div class="card">
     <div class="card-title">Line Breaks, Spacing, Emojis</div>
-    <p style="color:var(--text2); font-size:14px; margin-top:8px;">Invisible to the scoring system. Affects human behavior → dwell and engagement → indirect score effect. Line breaks that make posts scannable cause readers to pause longer → dwell signal fires. Emojis have zero algorithmic value but may affect whether humans stop scrolling past your post.</p>
+    <p style="color:var(--text2); font-size:13.5px; margin-top:8px;">Invisible to the scoring system. Affects human behavior → dwell and engagement → indirect score effect. Line breaks that make posts scannable cause readers to pause longer → dwell signal fires. Emojis have zero algorithmic value but may affect whether humans stop scrolling past your post.</p>
   </div>
 </section>
 
@@ -814,7 +821,7 @@
 <span class="code-key">tags</span>:                 list[str]     <span class="code-comment"># topic tags assigned</span>
 <span class="code-key">taxonomy_categories</span>:  list[dict]    <span class="code-comment"># internal topic taxonomy</span>
 <span class="code-key">slop_score</span>:           int | None    <span class="code-comment"># 1, 2, or 3</span>
-<span class="code-key">has_minor_score</span>:      float | None  <span class="code-comment"># content involving minors</span>
+<span class="code-key">has_minor_score</span>:      float | None
 <span class="code-key">tweet_bool_metadata</span>:               <span class="code-comment"># isHighQuality, isNsfw, isGore...</span>
 
 <span class="code-comment"># The hardcoded threshold:</span>
@@ -822,7 +829,7 @@
 
   <div class="callout callout-warning">
     <span class="callout-icon">⚡</span>
-    <strong>Deterministic:</strong> Temperature = 0.000001 means the same post gets the same score every time. There is no luck involved. The Grok VLM reads your full post + all images + your user profile + current trending topics and produces a fixed quality score.
+    <div><strong>Deterministic:</strong> Temperature = 0.000001 means the same post gets the same score every time. There is no luck involved. The Grok VLM reads your full post + all images + your user profile + current trending topics and produces a fixed quality score.</div>
   </div>
 
   <h3>The Tweet Bool Metadata Flags</h3>
@@ -879,13 +886,13 @@
 
   <div class="callout callout-danger">
     <span class="callout-icon">🔑</span>
-    <strong>The gate:</strong> Without crossing min traction, the banger classifier never sees your post. It doesn't matter how good your content is — if it doesn't get initial engagement, it never gets screened for viral amplification. The first 30-60 minutes are everything.
+    <div><strong>The gate:</strong> Without crossing min traction, the banger classifier never sees your post. It doesn't matter how good your content is — if it doesn't get initial engagement, it never gets screened for viral amplification. The first 30-60 minutes are everything.</div>
   </div>
 
   <h3>How to Cross the Threshold</h3>
   <ul>
-    <li><strong>DM the post to 5-10 people</strong> who will genuinely engage — this is the fastest way to seed min traction without looking like spam to the algorithm</li>
-    <li><strong>Get 2-3 real replies fast</strong> — reply weight is the 2nd highest action weight, making early replies particularly valuable for crossing the threshold</li>
+    <li><strong>DM the post to 5-10 people</strong> who will genuinely engage — fastest way to seed min traction without looking like spam</li>
+    <li><strong>Get 2-3 real replies fast</strong> — reply weight is 2nd highest action weight, making early replies particularly valuable</li>
     <li><strong>Engage other posts immediately before posting</strong> — drives profile visits that convert to early views</li>
     <li><strong>Have your most engaged followers ready</strong> — they provide the cleanest traction signal for the algorithm</li>
   </ul>
@@ -909,8 +916,7 @@
 <span class="code-string">"task.publish_unified_post_annotations.slop_score_2.count"</span>
 <span class="code-string">"task.publish_unified_post_annotations.slop_score_3.count"</span>
 
-<span class="code-comment"># Stored permanently in unified post annotations</span>
-<span class="code-comment"># Follows the post into the ranking system</span></code></pre>
+<span class="code-comment"># Stored permanently in unified post annotations</span></code></pre>
 
   <div class="compare-grid">
     <div class="compare-card compare-bad">
@@ -935,7 +941,7 @@
 
   <div class="callout callout-warning">
     <span class="callout-icon">⚡</span>
-    <strong>Most counterintuitive finding in the codebase:</strong> The system has an explicit anti-generic-content classifier running on every post that gains traction. Specificity wins. A post with a controversial specific claim scores better than a broadly agreeable platitude.
+    <div><strong>Most counterintuitive finding in the codebase:</strong> The system has an explicit anti-generic-content classifier running on every post that gains traction. Specificity wins. A post with a controversial specific claim scores better than a broadly agreeable platitude.</div>
   </div>
 </section>
 
@@ -980,7 +986,7 @@
 
   <div class="callout">
     <span class="callout-icon">💡</span>
-    <strong>Trending topics injection:</strong> The VLM is explicitly given the current Grok topic taxonomy (refreshed hourly). It's asking: "does this post relate to what's trending right now?" Posts that map to trending taxonomy categories get amplified into those topic feeds. Not hashtags — the VLM reads actual topic relevance from your content.
+    <div><strong>Trending topics injection:</strong> The VLM is explicitly given the current Grok topic taxonomy (refreshed hourly). It's asking: "does this post relate to what's trending right now?" Posts that map to trending taxonomy categories get amplified into those topic feeds. Not hashtags — the VLM reads actual topic relevance from your content.</div>
   </div>
 </section>
 
@@ -995,56 +1001,56 @@
   </div>
 
   <div class="flywheel-steps">
-    <div class="flywheel-step">
+    <div class="flywheel-step active">
       <div class="flywheel-dot">1</div>
       <div class="flywheel-content">
         <div class="flywheel-title">Post Published</div>
         <div class="flywheel-desc">Enters <code>CONTENT_UNDERSTANDING_REALTIME_UNIFIED_POSTS</code> stream. ML embeddings generated immediately. Thunder serves to your followers at sub-millisecond latency.</div>
       </div>
     </div>
-    <div class="flywheel-step">
+    <div class="flywheel-step active">
       <div class="flywheel-dot">2</div>
       <div class="flywheel-content">
         <div class="flywheel-title">In-Network Distribution Begins</div>
         <div class="flywheel-desc">Your followers see the post. Their engagement quality determines how the algorithm routes the post to strangers. High-quality early engagement = better OON routing.</div>
       </div>
     </div>
-    <div class="flywheel-step">
+    <div class="flywheel-step active">
       <div class="flywheel-dot">3</div>
       <div class="flywheel-content">
         <div class="flywheel-title">Manufacture Min Traction — First 30-60 Minutes</div>
         <div class="flywheel-desc">DM the post to 5-10 people. Get 2-3 real replies fast. Drive profile visits. Cross the min traction threshold — this is the gate to everything downstream.</div>
       </div>
     </div>
-    <div class="flywheel-step">
+    <div class="flywheel-step active">
       <div class="flywheel-dot">4</div>
       <div class="flywheel-content">
         <div class="flywheel-title">Grok VLM Analysis</div>
         <div class="flywheel-desc">Post enters <code>MIN_TRACTION_FOR_GROX</code> stream. Grok VLM analyzes at temperature=0.000001 (deterministic). Assigns quality_score, slop_score, tags, taxonomy categories. This analysis is permanent.</div>
       </div>
     </div>
-    <div class="flywheel-step">
+    <div class="flywheel-step active">
       <div class="flywheel-dot">5</div>
       <div class="flywheel-content">
         <div class="flywheel-title">Banger Screen Result</div>
         <div class="flywheel-desc">If quality_score ≥ 0.4: <code>banger_initial_positive = TRUE</code>. The <code>isHighQuality</code> boolean is stored permanently in unified post annotations. This is a persistent ranking signal for the post's full 80-hour lifespan.</div>
       </div>
     </div>
-    <div class="flywheel-step">
+    <div class="flywheel-step active">
       <div class="flywheel-dot">6</div>
       <div class="flywheel-content">
         <div class="flywheel-title">OON Distribution Unlocks</div>
         <div class="flywheel-desc">With <code>isHighQuality = true</code>, the post gets served to out-of-network users following related taxonomy categories. The OON_WEIGHT_FACTOR penalty is partially offset by the quality annotation.</div>
       </div>
     </div>
-    <div class="flywheel-step">
+    <div class="flywheel-step active">
       <div class="flywheel-dot">7</div>
       <div class="flywheel-content">
         <div class="flywheel-title">The Cascade</div>
         <div class="flywheel-desc">Stranger engagement feeds back into Phoenix real-time scoring. Higher predicted action probabilities → higher scores in next feed loads → more OON distribution → more engagement. The flywheel spins.</div>
       </div>
     </div>
-    <div class="flywheel-step">
+    <div class="flywheel-step active">
       <div class="flywheel-dot">8</div>
       <div class="flywheel-content">
         <div class="flywheel-title">Author Embedding Updated</div>
@@ -1052,7 +1058,7 @@
       </div>
     </div>
     <div class="flywheel-step">
-      <div class="flywheel-dot">⏰</div>
+      <div class="flywheel-dot" style="color:var(--red); border-color:rgba(239,68,68,0.25); background:rgba(239,68,68,0.05);">⏰</div>
       <div class="flywheel-content" style="padding-top:6px;">
         <div class="flywheel-title" style="color:var(--red);">80-Hour Hard Cliff</div>
         <div class="flywheel-desc">Post exits retrieval window entirely. All of the above must happen within 80 hours. After that, the post is functionally dead for For You distribution.</div>
@@ -1071,25 +1077,23 @@
     <p class="section-subtitle">Three stages, each with a different algorithmic context and different optimal tactics.</p>
   </div>
 
-  <!-- Stage 1 -->
   <div class="growth-stage">
     <div class="growth-stage-header">
       <div class="growth-stage-title">Stage 1: 100 → 1,000</div>
       <span class="growth-stage-badge badge-1">Escape the Spam Tier</span>
     </div>
     <div class="growth-stage-body">
-      <p style="color:var(--text2); font-size:14px; margin-bottom:16px;">Below 1,000 followers, <code>SpamEapiLowFollowerClassifier</code> applies maximum scrutiny. Move through this stage fast.</p>
       <div class="growth-rule">
         <div class="growth-rule-num">1</div>
         <div class="growth-rule-text"><strong>Post once per day maximum.</strong> Author diversity decay means multiple posts compete against each other in the same feed loads. One strong post beats three mediocre ones every time.</div>
       </div>
       <div class="growth-rule">
         <div class="growth-rule-num">2</div>
-        <div class="growth-rule-text"><strong>Reply to large accounts in your niche aggressively.</strong> Your reply is a separate scored candidate in other people's For You feeds. Engagement on your reply = out-of-network impressions with zero follower base. This is the fastest OON path at this stage.</div>
+        <div class="growth-rule-text"><strong>Reply to large accounts in your niche aggressively.</strong> Your reply is a separate scored candidate in other people's For You feeds. Engagement on your reply = out-of-network impressions with zero follower base.</div>
       </div>
       <div class="growth-rule">
         <div class="growth-rule-num">3</div>
-        <div class="growth-rule-text"><strong>Optimize every post for FOLLOW_AUTHOR_WEIGHT, not likes.</strong> Posts where a stranger thinks "who is this, I want more" — cliffhangers, unexpected angles, posts that feel like the first chapter of something. Not satisfying conclusions.</div>
+        <div class="growth-rule-text"><strong>Optimize every post for FOLLOW_AUTHOR_WEIGHT, not likes.</strong> Posts where a stranger thinks "who is this, I want more" — cliffhangers, unexpected angles, posts that feel like the first chapter of something.</div>
       </div>
       <div class="growth-rule">
         <div class="growth-rule-num">4</div>
@@ -1105,19 +1109,17 @@
       </div>
       <div class="growth-rule">
         <div class="growth-rule-num">7</div>
-        <div class="growth-rule-text"><strong>Never set your account to private, even temporarily.</strong> Private/protected accounts are hard-excluded from the banger pipeline in the source code. TaskInitialBangerFilter returns false for <code>is_protected</code> accounts.</div>
+        <div class="growth-rule-text"><strong>Never set your account to private, even temporarily.</strong> Private/protected accounts are hard-excluded from the banger pipeline. <code>TaskInitialBangerFilter</code> returns false for <code>is_protected</code> accounts — permanently.</div>
       </div>
     </div>
   </div>
 
-  <!-- Stage 2 -->
   <div class="growth-stage">
     <div class="growth-stage-header">
       <div class="growth-stage-title">Stage 2: 1,000 → 5,000</div>
       <span class="growth-stage-badge badge-2">Build the Embedding</span>
     </div>
     <div class="growth-stage-body">
-      <p style="color:var(--text2); font-size:14px; margin-bottom:16px;">Spam tier cleared. Phoenix is building a real embedding of who you are. Feed it clean, consistent, high-signal data.</p>
       <div class="growth-rule">
         <div class="growth-rule-num">8</div>
         <div class="growth-rule-text"><strong>Manufacture your first quoted posts.</strong> QUOTE_WEIGHT is high, quotes bring entirely new audiences, and those audiences generate their own engagement on your original post. Post opinions with a clear, arguable position.</div>
@@ -1132,7 +1134,7 @@
       </div>
       <div class="growth-rule">
         <div class="growth-rule-num">11</div>
-        <div class="growth-rule-text"><strong>Engage with 1k–10k accounts actively.</strong> The spam classifier checks if at least one interaction participant has >1,000 followers. Being in dialogue with larger accounts moves you into the lower-scrutiny <code>gt_1000</code> tier for those interactions.</div>
+        <div class="growth-rule-text"><strong>Engage with 1k–10k accounts actively.</strong> The spam classifier checks if at least one interaction participant has &gt;1,000 followers. Being in dialogue with larger accounts moves you into the lower-scrutiny <code>gt_1000</code> tier for those interactions.</div>
       </div>
       <div class="growth-rule">
         <div class="growth-rule-num">12</div>
@@ -1145,14 +1147,12 @@
     </div>
   </div>
 
-  <!-- Stage 3 -->
   <div class="growth-stage">
     <div class="growth-stage-header">
       <div class="growth-stage-title">Stage 3: 5,000 → 10,000</div>
       <span class="growth-stage-badge badge-3">Feed the Flywheel</span>
     </div>
     <div class="growth-stage-body">
-      <p style="color:var(--text2); font-size:14px; margin-bottom:16px;">Strong author embedding established. The algorithm knows who to route you to. Your job: hit FOLLOW_AUTHOR_WEIGHT consistently.</p>
       <div class="growth-rule">
         <div class="growth-rule-num">14</div>
         <div class="growth-rule-text"><strong>Create a signature format.</strong> Consistent structure, voice, and visual approach trains the model to confidently route you to the right audience. Inconsistency weakens the embedding. A recognizable format also increases profile clicks from repeat exposure.</div>
@@ -1181,16 +1181,16 @@
 
 <!-- ══ CLOSING PRINCIPLE ══════════════════════════════════════════════════ -->
 <section class="section" id="principle">
-  <div style="text-align:center; padding: 40px 0 60px;">
-    <div class="hero-eyebrow" style="display:inline-flex; margin-bottom:24px;"><span></span>The Core Principle</div>
-    <h1 style="font-size:36px; font-weight:900; letter-spacing:-1px; color:#fff; margin-bottom:16px; line-height:1.2;">The algorithm is a<br><em style="font-style:normal; background:linear-gradient(135deg,#fff,var(--accent)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">follow-intent maximizer</em></h1>
-    <p style="font-size:17px; color:var(--text2); max-width:560px; margin:0 auto 32px; line-height:1.7;">FOLLOW_AUTHOR_WEIGHT is the highest-weighted action. Every mechanic — the banger screen, the OON boost, the author embedding, the retrieval routing — ultimately serves one question:</p>
-    <div style="background:var(--surface2); border:1px solid var(--border2); border-radius:var(--radius); padding:24px 32px; display:inline-block; margin-bottom:32px; font-size:18px; font-weight:700; color:#fff; font-style:italic;">"Will this user follow the author after seeing this post?"</div>
-    <p style="font-size:15px; color:var(--text3); max-width:500px; margin:0 auto;">Not impressions. Not likes. Not reach.<br>Every post should make a stranger want to see what you post next.</p>
+  <div class="principle-box">
+    <div class="section-tag" style="justify-content:center;">The Core Principle</div>
+    <h1 style="font-size:28px; font-weight:800; letter-spacing:-0.8px; color:#fff; margin:16px 0; line-height:1.25; text-align:center;">The algorithm is a<br><em style="font-style:normal; color:var(--accent);">follow-intent maximizer</em></h1>
+    <p style="font-size:15px; color:var(--text2); max-width:520px; margin:0 auto 24px; line-height:1.7; text-align:center;">FOLLOW_AUTHOR_WEIGHT is the highest-weighted action. Every mechanic — the banger screen, the OON boost, the author embedding, the retrieval routing — ultimately serves one question:</p>
+    <div class="principle-quote">"Will this user follow the author after seeing this post?"</div>
+    <p style="font-size:13.5px; color:var(--text3); text-align:center; margin:0;">Not impressions. Not likes. Not reach.<br>Every post should make a stranger want to see what you post next.</p>
   </div>
 </section>
 
-</div><!-- /content-wrap -->
+</div>
 </main>
 
 <script src="script.js"></script>

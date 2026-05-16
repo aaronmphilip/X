@@ -1,3 +1,21 @@
+/* ── Mobile sidebar toggle ──────────────────────── */
+(function () {
+  const btn     = document.getElementById('menuBtn');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+
+  function open()  { sidebar.classList.add('open');    overlay.classList.add('visible');    document.body.style.overflow = 'hidden'; }
+  function close() { sidebar.classList.remove('open'); overlay.classList.remove('visible'); document.body.style.overflow = ''; }
+
+  btn?.addEventListener('click', () => sidebar.classList.contains('open') ? close() : open());
+  overlay?.addEventListener('click', close);
+
+  // close drawer when a sidebar link is tapped
+  sidebar?.addEventListener('click', e => {
+    if (e.target.closest('.sidebar-link')) close();
+  });
+})();
+
 /* ── Navbar hide/show on scroll ─────────────────── */
 (function () {
   const nav = document.getElementById('navbar');

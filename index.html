@@ -51,7 +51,11 @@
 <aside id="sidebar">
 
   <div class="sidebar-group">
-    <a class="sidebar-link sidebar-link-featured" data-section="layman">
+    <a class="sidebar-link sidebar-link-featured" data-section="daily-checklist">
+      <span class="sidebar-dot"></span>
+      ✅ Daily Checklist
+    </a>
+    <a class="sidebar-link sidebar-link-featured sidebar-link-featured-alt" data-section="layman">
       <span class="sidebar-dot"></span>
       ✦ Layman's Guide
     </a>
@@ -199,10 +203,6 @@
       <span class="sidebar-dot"></span>
       The Core Principle
     </a>
-    <a class="sidebar-link" data-section="daily-checklist">
-      <span class="sidebar-dot"></span>
-      Daily Checklist
-    </a>
   </div>
 
 </aside>
@@ -305,6 +305,245 @@
       <div><div class="pipeline-title">Side Effects — Async</div><div class="pipeline-desc">Log served candidates to Kafka, publish seen post IDs, update Redis cache, update served history, update past request timestamps, log impressions.</div></div>
     </div>
   </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══ DAILY CHECKLIST ══════════════════════════════════════════════════ -->
+<section class="section" id="daily-checklist">
+  <div class="section-header">
+    <div class="section-tag">✅ Daily Action System</div>
+    <h1 class="section-title">Your Personalised Daily Checklist</h1>
+    <p class="section-subtitle">Tell us your follower count and get a tailored list of exactly what to do today — based on where you are in the algorithm.</p>
+  </div>
+
+  <!-- Step 1: Input -->
+  <div class="cl-setup" id="clSetup">
+    <div class="cl-input-card">
+      <div class="cl-input-label">How many followers do you have right now?</div>
+      <div class="cl-input-row">
+        <input class="cl-input" id="clFollowerInput" type="number" min="0" placeholder="e.g. 847" autocomplete="off" />
+        <button class="cl-btn" id="clGetBtn">Get My Checklist →</button>
+      </div>
+      <div class="cl-input-hint">Enter your current follower count — your checklist updates to match your growth stage.</div>
+    </div>
+  </div>
+
+  <!-- Step 2: Result (shown after input) -->
+  <div class="cl-result" id="clResult" style="display:none">
+    <div class="cl-result-header">
+      <div>
+        <div class="cl-tier-badge" id="clTierBadge"></div>
+        <div class="cl-result-title" id="clResultTitle"></div>
+        <div class="cl-result-desc" id="clResultDesc"></div>
+      </div>
+      <div class="cl-result-actions">
+        <button class="cl-action-btn" id="clChangeBtn">← Change</button>
+        <button class="cl-action-btn cl-action-btn-dim" id="clResetBtn">Reset checks</button>
+      </div>
+    </div>
+
+    <div class="cl-progress-wrap">
+      <div class="cl-progress-label"><span id="clDoneCount">0</span> / <span id="clTotalCount">0</span> done today</div>
+      <div class="cl-progress-track"><div class="cl-progress-fill" id="clProgressFill"></div></div>
+    </div>
+
+    <div class="cl-items" id="clItems"></div>
+
+    <div class="cl-footer-tip" id="clFooterTip"></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══ LAYMAN'S GUIDE ════════════════════════════════════════════════════ -->
+<section class="section" id="layman">
+  <div class="section-header">
+    <div class="section-tag">✦ The Simple Version</div>
+    <h1 class="section-title">Layman's Guide — Everything That Matters, Simply</h1>
+    <p class="section-subtitle">Forget the code. Forget the jargon. Here's what the algorithm actually is, how to post, how to go viral, and how to grow from 100 to 10,000 — in plain English.</p>
+  </div>
+
+  <!-- WHAT IS THE ALGORITHM -->
+  <div class="layman-block">
+    <div class="layman-block-label">What The Algorithm Actually Is</div>
+    <p>X's algorithm is essentially one giant question machine. Every time someone opens their feed, it asks: <em>"Which posts is this person most likely to <strong>follow the author</strong> of?"</em> That's it. Not which posts will get the most likes. Not which posts are the most interesting. It ranks every single post by how likely a viewer is to tap "Follow" after seeing it.</p>
+    <p>It uses a machine learning model called Phoenix that has learned from billions of interactions what kind of post makes someone want to follow an account. It predicts 19 different things a person might do — follow, reply, retweet, DM it to a friend, like it, click your profile — and adds up the scores with weights. Following you is worth the most. Replying is second. DMing your post to someone is third. A simple like is mid-tier.</p>
+    <p>Your job is to make every post feel like the beginning of something worth following.</p>
+  </div>
+
+  <!-- THE SIMPLE RULES -->
+  <div class="layman-block">
+    <div class="layman-block-label">How to Post — The Simple Rules</div>
+
+    <div class="layman-rules">
+      <div class="layman-rule">
+        <div class="layman-rule-icon">📌</div>
+        <div>
+          <div class="layman-rule-title">Post once a day, not five times</div>
+          <div class="layman-rule-body">The algorithm penalises you every time you appear more than once in the same person's feed refresh. Your second post of the day only gets 94% of the score your first got. Your third gets 89%. Space posts at least 3 hours apart — ideally post your best once per day and make it count.</div>
+        </div>
+      </div>
+
+      <div class="layman-rule">
+        <div class="layman-rule-icon">⏱️</div>
+        <div>
+          <div class="layman-rule-title">The first 30 minutes are everything</div>
+          <div class="layman-rule-body">The algorithm checks your engagement every 5 minutes for the first 30 minutes. How fast you get replies, likes, and reshares in that window determines whether your post spreads to people who don't follow you. Post when your most engaged followers are online — not when "the platform" is busiest. Stay active for 2 hours after posting and reply to every comment.</div>
+        </div>
+      </div>
+
+      <div class="layman-rule">
+        <div class="layman-rule-icon">📏</div>
+        <div>
+          <div class="layman-rule-title">Write for 25–30 seconds of reading time</div>
+          <div class="layman-rule-body">The algorithm tracks how long someone pauses on your post. The score maxes out at 30 seconds — anything longer gets no extra credit. A post that takes 25 seconds to read and lands perfectly earns the same dwell score as a 3-minute essay. Write tight. Hook in the first line. Deliver the value. Done.</div>
+        </div>
+      </div>
+
+      <div class="layman-rule">
+        <div class="layman-rule-icon">🎯</div>
+        <div>
+          <div class="layman-rule-title">Stay on one topic — always</div>
+          <div class="layman-rule-body">The algorithm builds a profile of what you talk about based on your last 128 posts. It then finds people who love that topic and routes your content to them. If you post about fitness, finance, and cooking, the model gets confused and can't confidently route you to anyone. Pick one lane and own it until you hit 10,000. You can expand later — not now.</div>
+        </div>
+      </div>
+
+      <div class="layman-rule">
+        <div class="layman-rule-icon">🚫</div>
+        <div>
+          <div class="layman-rule-title">Never go private — not even for a day</div>
+          <div class="layman-rule-body">Private accounts are literally blocked from the viral content pipeline in the source code. The quality classifier that gives posts a viral boost doesn't even look at protected accounts. Going private to "clean up" your account cuts you off from every growth mechanic on the platform.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW TO GO VIRAL -->
+  <div class="layman-block">
+    <div class="layman-block-label">How to Go Viral — The Real Process</div>
+    <p>Going viral isn't luck. There's a literal system in the source code called <strong>BangerInitialScreen</strong> — a Grok AI that reads your post and gives it a quality score from 0 to 1. If it scores above 0.4, your post is flagged as high quality and gets pushed to strangers. If it scores below 0.4, it only reaches your existing followers. That score is permanent and assigned within the first hour.</p>
+
+    <div class="layman-step-list">
+      <div class="layman-step">
+        <div class="layman-step-num">1</div>
+        <div class="layman-step-text"><strong>Write something specific and original.</strong> The same AI that scores your post also detects "slop" — generic, AI-generated, or copy-paste content. Broad motivational posts, recycled advice, and vague takes all score low. The more specific and surprising your post, the higher it scores. A specific claim someone could disagree with beats a platitude everyone agrees with.</div>
+      </div>
+      <div class="layman-step">
+        <div class="layman-step-num">2</div>
+        <div class="layman-step-text"><strong>Seed the first 30–60 minutes.</strong> The viral AI only looks at your post if it already has some engagement — called the "min traction gate." No engagement = the AI never sees it = no viral boost. DM your post to 5–10 people who will genuinely engage. Get 2–3 real replies fast. This is not gaming the system — this is how the system is designed to work.</div>
+      </div>
+      <div class="layman-step">
+        <div class="layman-step-num">3</div>
+        <div class="layman-step-text"><strong>Use images that add information.</strong> The viral AI reads your images too. A screenshot of a chart, a dense infographic, or a photo that proves your point raises your quality score. A stock photo, a generic AI image, or an unrelated visual lowers it. Every image gets analysed alongside your text as one combined piece of content.</div>
+      </div>
+      <div class="layman-step">
+        <div class="layman-step-num">4</div>
+        <div class="layman-step-text"><strong>Post about what's trending — authentically.</strong> The AI is given the current trending topics every hour. It checks if your post is relevant to them. Posts that connect to a trending topic get boosted into that topic's feed on top of the regular For You feed. You get two distribution channels instead of one. Don't force it — but if what you post naturally connects to something trending, say so explicitly.</div>
+      </div>
+      <div class="layman-step">
+        <div class="layman-step-num">5</div>
+        <div class="layman-step-text"><strong>Make it quotable and DM-worthy.</strong> Replies are great. But quotes and DM shares reach entirely new audiences. A quote brings someone's whole follower list to your post. A DM share means someone thought "I need to send this to my friend" — and DM shares are scored higher than likes. Design every post with the question: "Would someone DM this to someone they know?"</div>
+      </div>
+    </div>
+
+    <div class="callout callout-danger">
+      <span class="callout-icon">⏰</span>
+      <div><strong>The 80-hour deadline.</strong> Every post has exactly 80 hours of life in the algorithm. After that, it's gone — it will never appear in anyone's For You feed again, ever. There is no "it blew up a week later" on X. Everything — all seeding, engagement, sharing — must happen within those 80 hours. The first 6 hours are the most important.</div>
+    </div>
+  </div>
+
+  <!-- HOW TO INCREASE REACH -->
+  <div class="layman-block">
+    <div class="layman-block-label">How to Increase Reach &amp; Engagement</div>
+
+    <div class="layman-rules">
+      <div class="layman-rule">
+        <div class="layman-rule-icon">💬</div>
+        <div>
+          <div class="layman-rule-title">Reply to big accounts — it's a growth hack hidden in plain sight</div>
+          <div class="layman-rule-body">When you reply to a large account, your reply becomes its own ranked post in other people's feeds. A sharp, insightful reply to a 500K account can get 50K impressions for an account with 200 followers. This is the fastest out-of-network exposure available to small accounts. Do it every day.</div>
+        </div>
+      </div>
+
+      <div class="layman-rule">
+        <div class="layman-rule-icon">🕸️</div>
+        <div>
+          <div class="layman-rule-title">Engage where your audience hangs out</div>
+          <div class="layman-rule-body">The algorithm measures how many followers you and a viewer share in common. The more accounts you both follow, the higher your posts rank in their feed — even before they follow you. By replying to and engaging with the same accounts your target audience follows, you gradually become more visible to them without needing them to discover you directly.</div>
+        </div>
+      </div>
+
+      <div class="layman-rule">
+        <div class="layman-rule-icon">📹</div>
+        <div>
+          <div class="layman-rule-title">If you post video, make it over 60 seconds</div>
+          <div class="layman-rule-body">Videos under the minimum duration threshold get zero credit for video quality views — an entire scoring category is simply zeroed out. Videos over 60 seconds safely clear this threshold and earn an extra scoring signal on top of all the normal ones (likes, replies, follows). A qualifying video that performs well is the highest-ceiling post format on the platform.</div>
+        </div>
+      </div>
+
+      <div class="layman-rule">
+        <div class="layman-rule-icon">🔗</div>
+        <div>
+          <div class="layman-rule-title">Only link to content worth reading</div>
+          <div class="layman-rule-body">When someone clicks a link in your post, the algorithm tracks how long they stay on that page. If they immediately click back, that's a bad signal. If they read for 20 seconds, that's a good one. Clickbait links, paywalled articles, slow pages — they all actively hurt your post score. Only link to genuinely valuable content that keeps people engaged.</div>
+        </div>
+      </div>
+
+      <div class="layman-rule">
+        <div class="layman-rule-icon">🆕</div>
+        <div>
+          <div class="layman-rule-title">New accounts have an advantage — use it immediately</div>
+          <div class="layman-rule-body">New accounts get a higher out-of-network reach bonus and are placed in a special discovery mode that routes them to topic-based audiences from day one. This window closes automatically as your account ages — you can't reopen it. If you have a new account, post aggressively into trending topics from the very first week. The algorithmic assistance you have right now is the most you'll ever get.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 100 TO 10K -->
+  <div class="layman-block">
+    <div class="layman-block-label">100 → 10,000 in Plain English</div>
+
+    <div class="layman-phases">
+    <div class="layman-phase phase-1">
+      <div class="layman-phase-header">
+        <div class="layman-phase-title">Phase 1: 100 → 1,000 — Get out of the penalty box</div>
+      </div>
+      <div class="layman-phase-body">
+        <p>Under 1,000 followers, the spam filter treats you with maximum suspicion. Every post you make, every interaction you have is under a microscope. Your only goal here is to hit 1,000 as fast as possible because it's the threshold where the algorithm starts trusting you.</p>
+        <p><strong>What to do:</strong> Post one great thing per day on a single topic. Reply to big accounts in your niche every day — this is your fastest free reach. DM every post to 5–10 people immediately after posting. Never go private. Engage with accounts over 1,000 followers — it lowers the scrutiny level on your interactions. Trending topics are your best friend because new users get bonus routing into topic feeds.</p>
+      </div>
+    </div>
+
+    <div class="layman-phase phase-2">
+      <div class="layman-phase-header">
+        <div class="layman-phase-title">Phase 2: 1,000 → 5,000 — Build your identity</div>
+      </div>
+      <div class="layman-phase-body">
+        <p>The spam penalty lifts. The algorithm now has enough history from your posts to start understanding what you're about and who should see you. Your job is to feed it clean, consistent signal so it routes you more and more precisely to the right people.</p>
+        <p><strong>What to do:</strong> Start posting threads — each post in a thread is its own ranked candidate, so a great thread post 2 can pull readers to post 1. Use images that reward zooming in — charts, screenshots, data. Post opinions with a clear argument because that invites quotes, which bring entirely new audiences. Actively avoid any content that might trigger reports or blocks — one coordinated report campaign can kill your distribution for weeks.</p>
+      </div>
+    </div>
+
+    <div class="layman-phase phase-3">
+      <div class="layman-phase-header">
+        <div class="layman-phase-title">Phase 3: 5,000 → 10,000 — Feed the machine</div>
+      </div>
+      <div class="layman-phase-body">
+        <p>The algorithm knows who you are and who likes you. Your author profile is established. Now every post benefits from that reputation — the model confidently routes you to your audience. Don't mess it up with inconsistency.</p>
+        <p><strong>What to do:</strong> Develop a signature format — consistent voice, structure, visual style. It trains both the algorithm and your audience. Post at the times your specific followers are most active (not "platform peak times"). Never post twice within 3 hours. Design every post to earn that "isHighQuality" flag — be specific, be original, say something someone could disagree with. That flag gives you a persistent boost for the full 80-hour lifespan of every post.</p>
+      </div>
+    </div>
+    </div><!-- /.layman-phases -->
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="layman-final">
+    <div class="layman-final-label">If You Remember One Thing</div>
+    <div class="layman-final-quote">Every post should make a stranger think: "I need to follow this person."</div>
+    <p>Not "that was interesting." Not "I'll like this." Not "cool." The algorithm is literally measuring the probability that someone hits Follow after seeing your post — that's the highest-weighted signal in the entire system. Not reach, not likes, not impressions. Every creative decision, every topic choice, every timing decision should be filtered through one question: does this make someone want more?</p>
+  </div>
+
 </section>
 
 <hr class="section-divider">
@@ -1621,244 +1860,6 @@
 </section>
 
 
-<hr class="section-divider">
-
-<!-- ══ DAILY CHECKLIST ══════════════════════════════════════════════════ -->
-<section class="section" id="daily-checklist">
-  <div class="section-header">
-    <div class="section-tag">✅ Daily Action System</div>
-    <h1 class="section-title">Your Personalised Daily Checklist</h1>
-    <p class="section-subtitle">Tell us your follower count and get a tailored list of exactly what to do today — based on where you are in the algorithm.</p>
-  </div>
-
-  <!-- Step 1: Input -->
-  <div class="cl-setup" id="clSetup">
-    <div class="cl-input-card">
-      <div class="cl-input-label">How many followers do you have right now?</div>
-      <div class="cl-input-row">
-        <input class="cl-input" id="clFollowerInput" type="number" min="0" placeholder="e.g. 847" autocomplete="off" />
-        <button class="cl-btn" id="clGetBtn">Get My Checklist →</button>
-      </div>
-      <div class="cl-input-hint">Enter your current follower count — your checklist updates to match your growth stage.</div>
-    </div>
-  </div>
-
-  <!-- Step 2: Result (shown after input) -->
-  <div class="cl-result" id="clResult" style="display:none">
-    <div class="cl-result-header">
-      <div>
-        <div class="cl-tier-badge" id="clTierBadge"></div>
-        <div class="cl-result-title" id="clResultTitle"></div>
-        <div class="cl-result-desc" id="clResultDesc"></div>
-      </div>
-      <div class="cl-result-actions">
-        <button class="cl-action-btn" id="clChangeBtn">← Change</button>
-        <button class="cl-action-btn cl-action-btn-dim" id="clResetBtn">Reset checks</button>
-      </div>
-    </div>
-
-    <div class="cl-progress-wrap">
-      <div class="cl-progress-label"><span id="clDoneCount">0</span> / <span id="clTotalCount">0</span> done today</div>
-      <div class="cl-progress-track"><div class="cl-progress-fill" id="clProgressFill"></div></div>
-    </div>
-
-    <div class="cl-items" id="clItems"></div>
-
-    <div class="cl-footer-tip" id="clFooterTip"></div>
-  </div>
-</section>
-
-<hr class="section-divider">
-
-<!-- ══ LAYMAN'S GUIDE ════════════════════════════════════════════════════ -->
-<section class="section" id="layman">
-  <div class="section-header">
-    <div class="section-tag">✦ The Simple Version</div>
-    <h1 class="section-title">Layman's Guide — Everything That Matters, Simply</h1>
-    <p class="section-subtitle">Forget the code. Forget the jargon. Here's what the algorithm actually is, how to post, how to go viral, and how to grow from 100 to 10,000 — in plain English.</p>
-  </div>
-
-  <!-- WHAT IS THE ALGORITHM -->
-  <div class="layman-block">
-    <div class="layman-block-label">What The Algorithm Actually Is</div>
-    <p>X's algorithm is essentially one giant question machine. Every time someone opens their feed, it asks: <em>"Which posts is this person most likely to <strong>follow the author</strong> of?"</em> That's it. Not which posts will get the most likes. Not which posts are the most interesting. It ranks every single post by how likely a viewer is to tap "Follow" after seeing it.</p>
-    <p>It uses a machine learning model called Phoenix that has learned from billions of interactions what kind of post makes someone want to follow an account. It predicts 19 different things a person might do — follow, reply, retweet, DM it to a friend, like it, click your profile — and adds up the scores with weights. Following you is worth the most. Replying is second. DMing your post to someone is third. A simple like is mid-tier.</p>
-    <p>Your job is to make every post feel like the beginning of something worth following.</p>
-  </div>
-
-  <!-- THE SIMPLE RULES -->
-  <div class="layman-block">
-    <div class="layman-block-label">How to Post — The Simple Rules</div>
-
-    <div class="layman-rules">
-      <div class="layman-rule">
-        <div class="layman-rule-icon">📌</div>
-        <div>
-          <div class="layman-rule-title">Post once a day, not five times</div>
-          <div class="layman-rule-body">The algorithm penalises you every time you appear more than once in the same person's feed refresh. Your second post of the day only gets 94% of the score your first got. Your third gets 89%. Space posts at least 3 hours apart — ideally post your best once per day and make it count.</div>
-        </div>
-      </div>
-
-      <div class="layman-rule">
-        <div class="layman-rule-icon">⏱️</div>
-        <div>
-          <div class="layman-rule-title">The first 30 minutes are everything</div>
-          <div class="layman-rule-body">The algorithm checks your engagement every 5 minutes for the first 30 minutes. How fast you get replies, likes, and reshares in that window determines whether your post spreads to people who don't follow you. Post when your most engaged followers are online — not when "the platform" is busiest. Stay active for 2 hours after posting and reply to every comment.</div>
-        </div>
-      </div>
-
-      <div class="layman-rule">
-        <div class="layman-rule-icon">📏</div>
-        <div>
-          <div class="layman-rule-title">Write for 25–30 seconds of reading time</div>
-          <div class="layman-rule-body">The algorithm tracks how long someone pauses on your post. The score maxes out at 30 seconds — anything longer gets no extra credit. A post that takes 25 seconds to read and lands perfectly earns the same dwell score as a 3-minute essay. Write tight. Hook in the first line. Deliver the value. Done.</div>
-        </div>
-      </div>
-
-      <div class="layman-rule">
-        <div class="layman-rule-icon">🎯</div>
-        <div>
-          <div class="layman-rule-title">Stay on one topic — always</div>
-          <div class="layman-rule-body">The algorithm builds a profile of what you talk about based on your last 128 posts. It then finds people who love that topic and routes your content to them. If you post about fitness, finance, and cooking, the model gets confused and can't confidently route you to anyone. Pick one lane and own it until you hit 10,000. You can expand later — not now.</div>
-        </div>
-      </div>
-
-      <div class="layman-rule">
-        <div class="layman-rule-icon">🚫</div>
-        <div>
-          <div class="layman-rule-title">Never go private — not even for a day</div>
-          <div class="layman-rule-body">Private accounts are literally blocked from the viral content pipeline in the source code. The quality classifier that gives posts a viral boost doesn't even look at protected accounts. Going private to "clean up" your account cuts you off from every growth mechanic on the platform.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- HOW TO GO VIRAL -->
-  <div class="layman-block">
-    <div class="layman-block-label">How to Go Viral — The Real Process</div>
-    <p>Going viral isn't luck. There's a literal system in the source code called <strong>BangerInitialScreen</strong> — a Grok AI that reads your post and gives it a quality score from 0 to 1. If it scores above 0.4, your post is flagged as high quality and gets pushed to strangers. If it scores below 0.4, it only reaches your existing followers. That score is permanent and assigned within the first hour.</p>
-
-    <div class="layman-step-list">
-      <div class="layman-step">
-        <div class="layman-step-num">1</div>
-        <div class="layman-step-text"><strong>Write something specific and original.</strong> The same AI that scores your post also detects "slop" — generic, AI-generated, or copy-paste content. Broad motivational posts, recycled advice, and vague takes all score low. The more specific and surprising your post, the higher it scores. A specific claim someone could disagree with beats a platitude everyone agrees with.</div>
-      </div>
-      <div class="layman-step">
-        <div class="layman-step-num">2</div>
-        <div class="layman-step-text"><strong>Seed the first 30–60 minutes.</strong> The viral AI only looks at your post if it already has some engagement — called the "min traction gate." No engagement = the AI never sees it = no viral boost. DM your post to 5–10 people who will genuinely engage. Get 2–3 real replies fast. This is not gaming the system — this is how the system is designed to work.</div>
-      </div>
-      <div class="layman-step">
-        <div class="layman-step-num">3</div>
-        <div class="layman-step-text"><strong>Use images that add information.</strong> The viral AI reads your images too. A screenshot of a chart, a dense infographic, or a photo that proves your point raises your quality score. A stock photo, a generic AI image, or an unrelated visual lowers it. Every image gets analysed alongside your text as one combined piece of content.</div>
-      </div>
-      <div class="layman-step">
-        <div class="layman-step-num">4</div>
-        <div class="layman-step-text"><strong>Post about what's trending — authentically.</strong> The AI is given the current trending topics every hour. It checks if your post is relevant to them. Posts that connect to a trending topic get boosted into that topic's feed on top of the regular For You feed. You get two distribution channels instead of one. Don't force it — but if what you post naturally connects to something trending, say so explicitly.</div>
-      </div>
-      <div class="layman-step">
-        <div class="layman-step-num">5</div>
-        <div class="layman-step-text"><strong>Make it quotable and DM-worthy.</strong> Replies are great. But quotes and DM shares reach entirely new audiences. A quote brings someone's whole follower list to your post. A DM share means someone thought "I need to send this to my friend" — and DM shares are scored higher than likes. Design every post with the question: "Would someone DM this to someone they know?"</div>
-      </div>
-    </div>
-
-    <div class="callout callout-danger">
-      <span class="callout-icon">⏰</span>
-      <div><strong>The 80-hour deadline.</strong> Every post has exactly 80 hours of life in the algorithm. After that, it's gone — it will never appear in anyone's For You feed again, ever. There is no "it blew up a week later" on X. Everything — all seeding, engagement, sharing — must happen within those 80 hours. The first 6 hours are the most important.</div>
-    </div>
-  </div>
-
-  <!-- HOW TO INCREASE REACH -->
-  <div class="layman-block">
-    <div class="layman-block-label">How to Increase Reach &amp; Engagement</div>
-
-    <div class="layman-rules">
-      <div class="layman-rule">
-        <div class="layman-rule-icon">💬</div>
-        <div>
-          <div class="layman-rule-title">Reply to big accounts — it's a growth hack hidden in plain sight</div>
-          <div class="layman-rule-body">When you reply to a large account, your reply becomes its own ranked post in other people's feeds. A sharp, insightful reply to a 500K account can get 50K impressions for an account with 200 followers. This is the fastest out-of-network exposure available to small accounts. Do it every day.</div>
-        </div>
-      </div>
-
-      <div class="layman-rule">
-        <div class="layman-rule-icon">🕸️</div>
-        <div>
-          <div class="layman-rule-title">Engage where your audience hangs out</div>
-          <div class="layman-rule-body">The algorithm measures how many followers you and a viewer share in common. The more accounts you both follow, the higher your posts rank in their feed — even before they follow you. By replying to and engaging with the same accounts your target audience follows, you gradually become more visible to them without needing them to discover you directly.</div>
-        </div>
-      </div>
-
-      <div class="layman-rule">
-        <div class="layman-rule-icon">📹</div>
-        <div>
-          <div class="layman-rule-title">If you post video, make it over 60 seconds</div>
-          <div class="layman-rule-body">Videos under the minimum duration threshold get zero credit for video quality views — an entire scoring category is simply zeroed out. Videos over 60 seconds safely clear this threshold and earn an extra scoring signal on top of all the normal ones (likes, replies, follows). A qualifying video that performs well is the highest-ceiling post format on the platform.</div>
-        </div>
-      </div>
-
-      <div class="layman-rule">
-        <div class="layman-rule-icon">🔗</div>
-        <div>
-          <div class="layman-rule-title">Only link to content worth reading</div>
-          <div class="layman-rule-body">When someone clicks a link in your post, the algorithm tracks how long they stay on that page. If they immediately click back, that's a bad signal. If they read for 20 seconds, that's a good one. Clickbait links, paywalled articles, slow pages — they all actively hurt your post score. Only link to genuinely valuable content that keeps people engaged.</div>
-        </div>
-      </div>
-
-      <div class="layman-rule">
-        <div class="layman-rule-icon">🆕</div>
-        <div>
-          <div class="layman-rule-title">New accounts have an advantage — use it immediately</div>
-          <div class="layman-rule-body">New accounts get a higher out-of-network reach bonus and are placed in a special discovery mode that routes them to topic-based audiences from day one. This window closes automatically as your account ages — you can't reopen it. If you have a new account, post aggressively into trending topics from the very first week. The algorithmic assistance you have right now is the most you'll ever get.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 100 TO 10K -->
-  <div class="layman-block">
-    <div class="layman-block-label">100 → 10,000 in Plain English</div>
-
-    <div class="layman-phases">
-    <div class="layman-phase phase-1">
-      <div class="layman-phase-header">
-        <div class="layman-phase-title">Phase 1: 100 → 1,000 — Get out of the penalty box</div>
-      </div>
-      <div class="layman-phase-body">
-        <p>Under 1,000 followers, the spam filter treats you with maximum suspicion. Every post you make, every interaction you have is under a microscope. Your only goal here is to hit 1,000 as fast as possible because it's the threshold where the algorithm starts trusting you.</p>
-        <p><strong>What to do:</strong> Post one great thing per day on a single topic. Reply to big accounts in your niche every day — this is your fastest free reach. DM every post to 5–10 people immediately after posting. Never go private. Engage with accounts over 1,000 followers — it lowers the scrutiny level on your interactions. Trending topics are your best friend because new users get bonus routing into topic feeds.</p>
-      </div>
-    </div>
-
-    <div class="layman-phase phase-2">
-      <div class="layman-phase-header">
-        <div class="layman-phase-title">Phase 2: 1,000 → 5,000 — Build your identity</div>
-      </div>
-      <div class="layman-phase-body">
-        <p>The spam penalty lifts. The algorithm now has enough history from your posts to start understanding what you're about and who should see you. Your job is to feed it clean, consistent signal so it routes you more and more precisely to the right people.</p>
-        <p><strong>What to do:</strong> Start posting threads — each post in a thread is its own ranked candidate, so a great thread post 2 can pull readers to post 1. Use images that reward zooming in — charts, screenshots, data. Post opinions with a clear argument because that invites quotes, which bring entirely new audiences. Actively avoid any content that might trigger reports or blocks — one coordinated report campaign can kill your distribution for weeks.</p>
-      </div>
-    </div>
-
-    <div class="layman-phase phase-3">
-      <div class="layman-phase-header">
-        <div class="layman-phase-title">Phase 3: 5,000 → 10,000 — Feed the machine</div>
-      </div>
-      <div class="layman-phase-body">
-        <p>The algorithm knows who you are and who likes you. Your author profile is established. Now every post benefits from that reputation — the model confidently routes you to your audience. Don't mess it up with inconsistency.</p>
-        <p><strong>What to do:</strong> Develop a signature format — consistent voice, structure, visual style. It trains both the algorithm and your audience. Post at the times your specific followers are most active (not "platform peak times"). Never post twice within 3 hours. Design every post to earn that "isHighQuality" flag — be specific, be original, say something someone could disagree with. That flag gives you a persistent boost for the full 80-hour lifespan of every post.</p>
-      </div>
-    </div>
-    </div><!-- /.layman-phases -->
-  </div>
-
-  <!-- THE ONE THING -->
-  <div class="layman-final">
-    <div class="layman-final-label">If You Remember One Thing</div>
-    <div class="layman-final-quote">Every post should make a stranger think: "I need to follow this person."</div>
-    <p>Not "that was interesting." Not "I'll like this." Not "cool." The algorithm is literally measuring the probability that someone hits Follow after seeing your post — that's the highest-weighted signal in the entire system. Not reach, not likes, not impressions. Every creative decision, every topic choice, every timing decision should be filtered through one question: does this make someone want more?</p>
-  </div>
-
-</section>
 
 </div>
 </main>

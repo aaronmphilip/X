@@ -300,6 +300,14 @@ body {
 }
 .sidebar-link-featured:hover { background: rgba(14,165,233,0.18) !important; color: var(--accent) !important; }
 .sidebar-link-featured .sidebar-dot { background: var(--accent); }
+.sidebar-link-featured-alt {
+  color: var(--text2);
+  background: var(--surface2);
+  border-color: var(--border2);
+  margin-top: 2px;
+}
+.sidebar-link-featured-alt:hover { background: var(--surface3) !important; color: var(--text) !important; }
+.sidebar-link-featured-alt .sidebar-dot { background: var(--text3); }
 
 /* ── Main Layout ───────────────────────────────── */
 #main {
@@ -1057,6 +1065,18 @@ a code { color: var(--accent); }
 }
 
 /* ── Daily Checklist ────────────────────────────── */
+
+/* Wrap the whole section in a distinct tool card */
+#daily-checklist {
+  background: linear-gradient(145deg, rgba(14,165,233,0.04) 0%, rgba(16,185,129,0.02) 100%);
+  border: 1px solid rgba(14,165,233,0.15);
+  border-radius: 16px;
+  padding: 36px 40px;
+  margin-bottom: 88px;
+}
+#daily-checklist .section-tag { color: var(--green); }
+#daily-checklist .section-title { font-size: 28px; }
+
 .cl-setup { margin: 8px 0 32px; }
 
 .cl-input-card {
@@ -1299,6 +1319,7 @@ a code { color: var(--accent); }
 .cl-footer-tip strong { color: var(--accent); }
 
 @media (max-width: 640px) {
+  #daily-checklist { padding: 24px 16px; }
   .cl-input-card { padding: 22px 18px; }
   .cl-input-label { font-size: 15px; }
   .cl-input-row { flex-direction: column; align-items: stretch; }

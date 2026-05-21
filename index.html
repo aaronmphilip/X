@@ -199,6 +199,10 @@
       <span class="sidebar-dot"></span>
       The Core Principle
     </a>
+    <a class="sidebar-link" data-section="daily-checklist">
+      <span class="sidebar-dot"></span>
+      Daily Checklist
+    </a>
   </div>
 
 </aside>
@@ -1616,6 +1620,53 @@
   </div>
 </section>
 
+
+<hr class="section-divider">
+
+<!-- ══ DAILY CHECKLIST ══════════════════════════════════════════════════ -->
+<section class="section" id="daily-checklist">
+  <div class="section-header">
+    <div class="section-tag">✅ Daily Action System</div>
+    <h1 class="section-title">Your Personalised Daily Checklist</h1>
+    <p class="section-subtitle">Tell us your follower count and get a tailored list of exactly what to do today — based on where you are in the algorithm.</p>
+  </div>
+
+  <!-- Step 1: Input -->
+  <div class="cl-setup" id="clSetup">
+    <div class="cl-input-card">
+      <div class="cl-input-label">How many followers do you have right now?</div>
+      <div class="cl-input-row">
+        <input class="cl-input" id="clFollowerInput" type="number" min="0" placeholder="e.g. 847" autocomplete="off" />
+        <button class="cl-btn" id="clGetBtn">Get My Checklist →</button>
+      </div>
+      <div class="cl-input-hint">Enter your current follower count — your checklist updates to match your growth stage.</div>
+    </div>
+  </div>
+
+  <!-- Step 2: Result (shown after input) -->
+  <div class="cl-result" id="clResult" style="display:none">
+    <div class="cl-result-header">
+      <div>
+        <div class="cl-tier-badge" id="clTierBadge"></div>
+        <div class="cl-result-title" id="clResultTitle"></div>
+        <div class="cl-result-desc" id="clResultDesc"></div>
+      </div>
+      <div class="cl-result-actions">
+        <button class="cl-action-btn" id="clChangeBtn">← Change</button>
+        <button class="cl-action-btn cl-action-btn-dim" id="clResetBtn">Reset checks</button>
+      </div>
+    </div>
+
+    <div class="cl-progress-wrap">
+      <div class="cl-progress-label"><span id="clDoneCount">0</span> / <span id="clTotalCount">0</span> done today</div>
+      <div class="cl-progress-track"><div class="cl-progress-fill" id="clProgressFill"></div></div>
+    </div>
+
+    <div class="cl-items" id="clItems"></div>
+
+    <div class="cl-footer-tip" id="clFooterTip"></div>
+  </div>
+</section>
 
 <hr class="section-divider">
 

@@ -1056,6 +1056,258 @@ a code { color: var(--accent); }
   margin: 0 auto;
 }
 
+/* ── Daily Checklist ────────────────────────────── */
+.cl-setup { margin: 8px 0 32px; }
+
+.cl-input-card {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--r-lg);
+  padding: 32px 36px;
+}
+
+.cl-input-label {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 20px;
+  letter-spacing: -0.2px;
+}
+
+.cl-input-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cl-input {
+  flex: 1;
+  min-width: 160px;
+  max-width: 260px;
+  height: 44px;
+  background: var(--bg);
+  border: 1px solid var(--border2);
+  border-radius: var(--r);
+  color: var(--text);
+  font-size: 22px;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 0 16px;
+  letter-spacing: -0.5px;
+  outline: none;
+  transition: border-color 160ms var(--ease);
+  -moz-appearance: textfield;
+}
+.cl-input::-webkit-inner-spin-button,
+.cl-input::-webkit-outer-spin-button { -webkit-appearance: none; }
+.cl-input:focus { border-color: var(--accent); }
+.cl-input::placeholder { color: var(--text3); font-size: 16px; font-weight: 400; }
+
+.cl-btn {
+  height: 44px;
+  padding: 0 22px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--r);
+  cursor: pointer;
+  white-space: nowrap;
+  letter-spacing: -0.1px;
+  transition: opacity 160ms var(--ease), transform 120ms var(--ease);
+}
+.cl-btn:hover { opacity: 0.88; }
+.cl-btn:active { transform: scale(0.97); }
+
+.cl-input-hint {
+  font-size: 12.5px;
+  color: var(--text3);
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+/* Result */
+.cl-result { margin-top: 4px; }
+
+.cl-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.cl-tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.cl-tier-badge.tier-1 { background: rgba(239,68,68,0.1);   color: #FF8080; border: 1px solid rgba(239,68,68,0.2); }
+.cl-tier-badge.tier-2 { background: rgba(245,158,11,0.1);  color: var(--yellow); border: 1px solid rgba(245,158,11,0.2); }
+.cl-tier-badge.tier-3 { background: rgba(16,185,129,0.1);  color: var(--green);  border: 1px solid rgba(16,185,129,0.2); }
+.cl-tier-badge.tier-4 { background: var(--accent-dim);     color: var(--accent); border: 1px solid rgba(14,165,233,0.2); }
+
+.cl-result-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.4px;
+  margin-bottom: 5px;
+}
+
+.cl-result-desc {
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+.cl-result-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.cl-action-btn {
+  height: 34px;
+  padding: 0 14px;
+  background: var(--surface2);
+  color: var(--text2);
+  font-size: 12.5px;
+  font-weight: 600;
+  border: 1px solid var(--border2);
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: background 160ms, color 160ms;
+  white-space: nowrap;
+}
+.cl-action-btn:hover { background: var(--surface3); color: var(--text); }
+.cl-action-btn-dim { color: var(--text3); }
+
+/* Progress */
+.cl-progress-wrap {
+  margin-bottom: 20px;
+}
+.cl-progress-label {
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text3);
+  margin-bottom: 7px;
+}
+.cl-progress-track {
+  height: 4px;
+  background: var(--surface3);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.cl-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 99px;
+  width: 0%;
+  transition: width 300ms var(--ease);
+}
+
+/* Category + items */
+.cl-category {
+  margin-bottom: 20px;
+}
+.cl-category-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text3);
+  padding: 0 4px;
+  margin-bottom: 8px;
+}
+
+.cl-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 13px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  margin-bottom: 6px;
+  cursor: pointer;
+  transition: background 140ms var(--ease), border-color 140ms var(--ease);
+  user-select: none;
+}
+.cl-item:hover { background: var(--surface2); border-color: var(--border2); }
+.cl-item.done { background: rgba(16,185,129,0.04); border-color: rgba(16,185,129,0.16); }
+.cl-item.done .cl-item-text { color: var(--text3); text-decoration: line-through; }
+
+.cl-checkbox {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--border3);
+  border-radius: 5px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 160ms, border-color 160ms;
+  background: var(--bg);
+}
+.cl-item.done .cl-checkbox {
+  background: var(--green);
+  border-color: var(--green);
+}
+.cl-checkbox-tick {
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+  transition: opacity 160ms;
+}
+.cl-item.done .cl-checkbox-tick { opacity: 1; }
+
+.cl-item-text {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.55;
+  transition: color 160ms;
+}
+.cl-item-text strong { font-weight: 600; color: #fff; }
+
+.cl-footer-tip {
+  margin-top: 20px;
+  padding: 14px 18px;
+  background: var(--accent-glow);
+  border: 1px solid rgba(14,165,233,0.14);
+  border-radius: var(--r);
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+.cl-footer-tip strong { color: var(--accent); }
+
+@media (max-width: 640px) {
+  .cl-input-card { padding: 22px 18px; }
+  .cl-input-label { font-size: 15px; }
+  .cl-input-row { flex-direction: column; align-items: stretch; }
+  .cl-input { max-width: 100%; }
+  .cl-btn { width: 100%; justify-content: center; }
+  .cl-result-header { flex-direction: column; }
+  .cl-result-actions { flex-direction: row; }
+}
+
 /* ── Hamburger button (hidden on desktop) ───────── */
 .nav-menu-btn {
   display: none;
